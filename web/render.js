@@ -1,12 +1,12 @@
 // web/render.js — SVG 渲染与交互（第 5 步实现）
 // 职责：只读数据与计算结果来画：展开/折叠、平移/缩放、高亮回溯、悬停提示、点击详情卡。
-// 布局口径与生成器一致：展开集合由聚焦模型派生（设计文档 5.1），
-// 排布用 computed 中每节点的 children 关系做叶子累加（折叠节点占 1 列）。
+// 排布由本层按当前聚焦状态实时计算（设计文档 5.1 紧凑排布与主干对齐）；
+// 预计算只提供结构（祖先链 / 子节点 / 深度）与呈现经文，不含坐标。
 (function (global) {
   'use strict';
 
-  var COL_PITCH = 196; // 叶子列距（像素）
-  var ROW_PITCH = 124; // 深度行距（像素）
+  var GAP_X = 24; // 兄弟子树块之间的水平间隙（像素）
+  var ROW_GAP = 34; // 行与行之间的垂直间隙（像素）
   var CARD_W = 172; // 民族卡宽度
   var LINK_W = 132; // 连接人物卡宽度
   var MIN_K = 0.12;
@@ -77,46 +77,85 @@
     return c.ancestors[1];
   }
 
-  // 纯布局：给定展开集合，算出每个可见节点的抽象列与像素坐标。
-  function computePositions(model, expanded) {
-    var widthMemo = {};
-    function widthOf(id) {
-      if (widthMemo[id] != null) return widthMemo[id];
+  // 纯布局：给定展开集合与焦点链集合，算出每个可见节点的中心 x 与顶部 y（像素）。
+  // 紧凑排布与主干对齐（设计文档 5.1）：
+  // - 子树按真实卡宽打包，兄弟块之间留 GAP_X；
+  // - 在焦点链上的子节点称「主干子节点」：父有 1 个主干子节点时父中心与之对齐（主干成竖线）；
+  //   有 2 个时（双焦点在共同祖先处分叉）父中心取两者中点，两支线各成竖线并排而下；
+  //   有 0 个时（焦点本身）父在子节点块上居中；
+  // - 每行高度取该行最高卡片 + ROW_GAP。
+  function computePositions(model, expanded, chainSet, t) {
+    var tt =
+      t ||
+      function () {
+        return '';
+      };
+    var chain = chainSet || new Set();
+    function measure(id) {
+      var node = model.node(id);
+      var w = cardWidth(node);
+      var h = cardHeight(node, tt);
       var kids = model.childrenOf(id);
-      var w =
-        !kids.length || !expanded.has(id)
-          ? 1
-          : kids.reduce(function (s, c) {
-              return s + widthOf(c);
-            }, 0);
-      widthMemo[id] = w;
-      return w;
-    }
-    var pos = new Map();
-    (function assign(id, depth, startCol) {
-      var kids = model.childrenOf(id);
-      if (!kids.length || !expanded.has(id)) {
-        pos.set(id, { col: startCol, depth: depth });
-        return [startCol, startCol];
+      var visibleKids = kids.length && expanded.has(id) ? kids : [];
+      if (!visibleKids.length) {
+        return { w: w, h: h, blockW: w, anchor: w / 2, childShift: 0, childLefts: [], childInfos: [], visibleKids: [] };
       }
-      var first = null;
-      var last = null;
-      var cur = startCol;
-      kids.forEach(function (c) {
-        var span = assign(c, depth + 1, cur);
-        if (first === null) first = span[0];
-        last = span[1];
-        cur += widthOf(c);
+      var childInfos = visibleKids.map(measure);
+      var lefts = [];
+      var cur = 0;
+      childInfos.forEach(function (ci) {
+        lefts.push(cur);
+        cur += ci.blockW + GAP_X;
       });
-      // 与生成器同一口径：父节点列 = 其可见叶子跨度的中点
-      pos.set(id, { col: (first + last) / 2, depth: depth });
-      return [first, last];
-    })(model.rootId, 0, 0);
+      var kidsW = cur - GAP_X;
+      var spine = [];
+      visibleKids.forEach(function (c, i) {
+        if (chain.has(c)) spine.push(i);
+      });
+      var center;
+      if (spine.length === 1) {
+        center = lefts[spine[0]] + childInfos[spine[0]].anchor;
+      } else if (spine.length >= 2) {
+        var a = lefts[spine[0]] + childInfos[spine[0]].anchor;
+        var b = lefts[spine[spine.length - 1]] + childInfos[spine[spine.length - 1]].anchor;
+        center = (a + b) / 2;
+      } else {
+        center = kidsW / 2;
+      }
+      var L = Math.min(0, center - w / 2);
+      var R = Math.max(kidsW, center + w / 2);
+      return {
+        w: w,
+        h: h,
+        blockW: R - L,
+        anchor: center - L,
+        childShift: -L,
+        childLefts: lefts,
+        childInfos: childInfos,
+        visibleKids: visibleKids,
+      };
+    }
+    var rootInfo = measure(model.rootId);
+    var rowH = [];
+    var pos = new Map();
+    (function place(id, inf, blockLeft, depth) {
+      pos.set(id, { x: blockLeft + inf.anchor, y: 0, depth: depth, w: inf.w, h: inf.h });
+      rowH[depth] = Math.max(rowH[depth] || 0, inf.h);
+      inf.visibleKids.forEach(function (c, i) {
+        place(c, inf.childInfos[i], blockLeft + inf.childShift + inf.childLefts[i], depth + 1);
+      });
+    })(model.rootId, rootInfo, 0, 0);
+    var yOf = [0];
+    for (var d = 1; d < rowH.length; d++) yOf[d] = yOf[d - 1] + rowH[d - 1] + ROW_GAP;
     pos.forEach(function (p) {
-      p.x = p.col * COL_PITCH;
-      p.y = p.depth * ROW_PITCH;
+      p.y = yOf[p.depth];
     });
-    return { positions: pos, totalCols: widthOf(model.rootId) };
+    var last = rowH.length - 1;
+    return {
+      positions: pos,
+      totalWidth: rootInfo.blockW,
+      totalHeight: (yOf[last] || 0) + (rowH[last] || 0),
+    };
   }
 
   function mount(opts) {
@@ -226,7 +265,7 @@
       var expanded = currentExpanded();
       var chain = expanded;
       var focusSet = new Set(foci());
-      var layout = computePositions(model, expanded);
+      var layout = computePositions(model, expanded, chain, t);
       while (gLinks.firstChild) gLinks.removeChild(gLinks.firstChild);
       while (gNodes.firstChild) gNodes.removeChild(gNodes.firstChild);
 
@@ -300,15 +339,49 @@
       return layout;
     }
 
+    // 聚焦区域：两条焦点链 + 焦点的直接子节点（初始相机适配目标，设计文档 5.1）
+    function focusRegion(layout) {
+      var ids = new Set(currentExpanded());
+      foci().forEach(function (f) {
+        model.childrenOf(f).forEach(function (c) {
+          ids.add(c);
+        });
+      });
+      var r = { minX: Infinity, maxX: -Infinity, minY: Infinity, maxY: -Infinity };
+      ids.forEach(function (id) {
+        var p = layout.positions.get(id);
+        if (!p) return;
+        r.minX = Math.min(r.minX, p.x - p.w / 2);
+        r.maxX = Math.max(r.maxX, p.x + p.w / 2);
+        r.minY = Math.min(r.minY, p.y);
+        r.maxY = Math.max(r.maxY, p.y + p.h);
+      });
+      return r;
+    }
     function fitView() {
-      var layout = computePositions(model, currentExpanded());
+      var layout = computePositions(model, currentExpanded(), currentExpanded(), t);
       var w = svg.clientWidth || 800;
-      var treeW = (layout.totalCols - 1) * COL_PITCH + CARD_W;
-      var k = Math.min(1, Math.max(MIN_K, (w - 24) / treeW));
-      view.k = k;
-      view.tx = (w - treeW * k) / 2 + (CARD_W / 2) * k;
-      view.ty = 14;
+      var h = svg.clientHeight || 600;
+      var r = focusRegion(layout);
+      var rw = r.maxX - r.minX;
+      var rh = r.maxY - r.minY;
+      var k = Math.min(1, (w - 32) / rw, (h - 32) / rh);
+      view.k = Math.max(MIN_K, k);
+      view.tx = (w - rw * view.k) / 2 - r.minX * view.k;
+      view.ty = (h - rh * view.k) / 2 - r.minY * view.k;
       applyView();
+    }
+    // 点击锚定（设计文档 5.1）：重排前后让被点节点停留在同一屏幕位置
+    function anchorOn(id, beforeLayout, afterLayout) {
+      var b = beforeLayout.positions.get(id);
+      var a = afterLayout.positions.get(id);
+      if (!b || !a) return;
+      view.tx += (b.x - a.x) * view.k;
+      view.ty += (b.y + b.h / 2 - (a.y + a.h / 2)) * view.k;
+      applyView();
+    }
+    function layoutNow() {
+      return computePositions(model, currentExpanded(), currentExpanded(), t);
     }
 
     // ---------- 详情卡 ----------
@@ -508,14 +581,16 @@
         if (!wasDrag.moved) {
           var tg = wasDrag.toggleId;
           if (tg) {
+            var beforeT = layoutNow();
             applyToggle(tg);
-            render();
+            anchorOn(tg, beforeT, render());
             return;
           }
           var id = wasDrag.nodeId;
           if (id) {
+            var beforeN = layoutNow();
             applyFocusClick(id);
-            render();
+            anchorOn(id, beforeN, render());
             openDetail(id);
           } else {
             // 点空白处只关详情卡，不退出聚焦（设计文档 5.3）

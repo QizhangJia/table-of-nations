@@ -10,7 +10,8 @@
 // - sourceHash：nations.json 原始字节的 SHA-256，即数据指纹；
 //   发布时另在 data/<sourceHash>/computed.json 存一份固化版。
 // - nodes：每节点的 depth、ancestors（祖先链）、children、subtreeLeafWidth（全树子树叶子宽）、
-//   defaultExpanded / defaultVisible / defaultCol（默认展开状态的抽象列坐标，隐藏节点为 null）。
+//   defaultExpanded / defaultVisible。坐标不在预计算内（2026-11-20 定，version 2）：
+//   排布由渲染层按当前聚焦状态实时计算（设计文档 5.1 主干对齐规则）。
 // - presentation：每节点按权重入选的呈现经文 { origin, faith }（选取规则见设计文档 4.2：
 //   weight 降序，同分按经卷 / 章 / 节的正典顺序取先者；无经文为 null）。
 
@@ -82,7 +83,6 @@ function main() {
       subtreeLeafWidth: l.subtreeLeafWidth,
       defaultExpanded: l.defaultExpanded,
       defaultVisible: l.defaultVisible,
-      defaultCol: l.defaultCol,
     };
   });
 
@@ -96,7 +96,7 @@ function main() {
   }
 
   const out = {
-    version: 1,
+    version: 2,
     sourceHash,
     rootId: model.rootId,
     defaultDepth: DEFAULT_DEPTH,
