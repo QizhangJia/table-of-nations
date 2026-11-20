@@ -2,11 +2,27 @@
 <html lang="zh-Hans">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>旧约民族亲缘树</title>
-<!-- 第 5 步实现：结构、挂载点与脚本/样式引用 -->
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<!-- tree app mounts here -->
+<header id="topbar">
+  <h1 id="app-title">旧约民族亲缘树</h1>
+  <div id="legend" aria-label="分支图例"></div>
+</header>
+<main id="stage">
+  <svg id="tree" role="tree" aria-label="旧约民族亲缘树图"></svg>
+  <div id="tooltip" hidden></div>
+  <div id="zoom-controls">
+    <button id="zoom-in" type="button" aria-label="放大">+</button>
+    <button id="zoom-out" type="button" aria-label="缩小">−</button>
+  </div>
+  <aside id="detail" hidden aria-label="节点详情"></aside>
+  <div id="status" role="status" hidden></div>
+</main>
+<script src="i18n.js"></script>
+<script src="render.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
