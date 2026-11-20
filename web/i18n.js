@@ -28,6 +28,8 @@
       zoomIn: '放大',
       zoomOut: '缩小',
       close: '关闭',
+      searchPlaceholder: '搜索民族或人物…',
+      searchNoMatch: '无匹配',
     },
     'zh-Hant': {},
     en: {},

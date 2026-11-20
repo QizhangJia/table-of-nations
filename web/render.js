@@ -80,6 +80,34 @@
     return c.ancestors[1];
   }
 
+  // 搜索索引（设计文档 5.5）：按树序遍历全部节点，每个节点贡献名称一条、
+  // 祖先名一条（非空且与名称不同才加，如支派的「吕便」、以色列的「雅各（以色列）」）。
+  function buildSearchIndex(model) {
+    var entries = [];
+    (function walk(id) {
+      var node = model.node(id);
+      var nm = nameOf(node);
+      entries.push({ keyword: nm, id: id, nodeName: nm });
+      var anc = node.ancestor && node.ancestor['zh-Hans'];
+      if (anc && anc !== nm) entries.push({ keyword: anc, id: id, nodeName: nm });
+      model.childrenOf(id).forEach(walk);
+    })(model.rootId);
+    return entries;
+  }
+  // 严格前缀匹配：输入必须是关键词的前缀（不做子串/模糊/拼音）。
+  // 同一节点多条命中时只留最短的一条（通常是祖先名）；结果保持树序，上限 10。
+  function searchMatches(index, query) {
+    var q = String(query || '').trim();
+    if (!q) return [];
+    var byNode = new Map();
+    index.forEach(function (e) {
+      if (e.keyword.indexOf(q) !== 0) return;
+      var cur = byNode.get(e.id);
+      if (!cur || e.keyword.length < cur.keyword.length) byNode.set(e.id, e);
+    });
+    return Array.from(byNode.values()).slice(0, 10);
+  }
+
   // 纯布局：给定展开集合与焦点链集合，算出每个可见节点的中心 x 与顶部 y（像素）。
   // 紧凑排布与主干对齐（设计文档 5.1）：
   // - 深度轮廓打包：子树占位按逐深度轮廓计算，兄弟子树逐个贴放、只在它实际
@@ -705,6 +733,107 @@
       else applyView();
     });
 
+    // ---------- 搜索（设计文档 5.5） ----------
+    // 相机平移使目标节点居中（缩放不变，仍经 applyView 统一钳制）。
+    function centerOn(id, layout) {
+      var p = layout.positions.get(id);
+      if (!p) return;
+      var vp = viewport();
+      view.tx = vp.w / 2 - p.x * view.k;
+      view.ty = vp.h / 2 - (p.y + p.h / 2) * view.k;
+      applyView();
+    }
+    if (opts.searchInput && opts.searchList) {
+      var sInput = opts.searchInput;
+      var sList = opts.searchList;
+      var sIndex = buildSearchIndex(model);
+      var sHits = [];
+      var sActive = -1;
+      function closeSearch() {
+        sList.hidden = true;
+        sList.innerHTML = '';
+        sHits = [];
+        sActive = -1;
+      }
+      function paintActive() {
+        Array.from(sList.querySelectorAll('.search-item')).forEach(function (row, i) {
+          row.classList.toggle('active', i === sActive);
+        });
+      }
+      function runSearch() {
+        var q = sInput.value.trim();
+        if (!q) {
+          closeSearch();
+          return;
+        }
+        sHits = searchMatches(sIndex, q);
+        sActive = sHits.length ? 0 : -1; // 默认高亮第一条，Enter 可直接选
+        if (!sHits.length) {
+          sList.innerHTML = '<div class="search-none">' + esc(t('searchNoMatch')) + '</div>';
+        } else {
+          sList.innerHTML = sHits
+            .map(function (h, i) {
+              return (
+                '<button type="button" class="search-item' +
+                (i === sActive ? ' active' : '') +
+                '" data-si="' +
+                i +
+                '" role="option"><span class="search-kw">' +
+                esc(h.keyword) +
+                '</span>' +
+                (h.keyword !== h.nodeName
+                  ? '<span class="search-node">' + esc(h.nodeName) + '</span>'
+                  : '') +
+                '</button>'
+              );
+            })
+            .join('');
+        }
+        sList.hidden = false;
+      }
+      // 选中 = 等同点击该节点（聚焦规则 + 开详情），再把相机移到它身上。
+      function selectSearch(i) {
+        var h = sHits[i];
+        if (!h) return;
+        userMoved = true;
+        applyFocusClick(h.id);
+        var layout = render();
+        centerOn(h.id, layout);
+        openDetail(h.id);
+        sInput.value = h.keyword;
+        closeSearch();
+        sInput.blur();
+      }
+      sInput.addEventListener('input', runSearch);
+      sInput.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+          if (!sHits.length) return;
+          e.preventDefault();
+          sActive =
+            (sActive + (e.key === 'ArrowDown' ? 1 : -1) + sHits.length) % sHits.length;
+          paintActive();
+        } else if (e.key === 'Enter') {
+          if (sHits.length) {
+            e.preventDefault();
+            selectSearch(sActive >= 0 ? sActive : 0);
+          }
+        } else if (e.key === 'Escape') {
+          closeSearch();
+        }
+      });
+      // mousedown 先于输入框失焦发生，点选不被失焦逻辑干扰。
+      sList.addEventListener('mousedown', function (e) {
+        var b = e.target.closest ? e.target.closest('[data-si]') : null;
+        if (b) {
+          e.preventDefault();
+          selectSearch(Number(b.getAttribute('data-si')));
+        }
+      });
+      document.addEventListener('pointerdown', function (e) {
+        if (!sList.hidden && !(e.target.closest && e.target.closest('#search'))) closeSearch();
+      });
+    }
+
     render();
     fitView();
 
@@ -718,6 +847,8 @@
     _computePositions: computePositions,
     _minZoomFor: minZoomFor,
     _cardHeight: cardHeight,
+    _buildSearchIndex: buildSearchIndex,
+    _searchMatches: searchMatches,
   };
   global.NationsTree = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
