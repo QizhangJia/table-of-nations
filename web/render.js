@@ -1,7 +1,7 @@
 // web/render.js — SVG 渲染与交互（第 5 步实现）
 // 职责：只读数据与计算结果来画：展开/折叠、平移/缩放、高亮回溯、悬停提示、点击详情卡。
-// 布局口径与生成器一致：默认状态采用 computed.json 的预计算展开集；展开/折叠后的重排
-// 用 computed 中每节点的 children 关系做叶子累加排布（折叠节点占 1 列）。
+// 布局口径与生成器一致：展开集合由聚焦模型派生（设计文档 5.1），
+// 排布用 computed 中每节点的 children 关系做叶子累加（折叠节点占 1 列）。
 (function (global) {
   'use strict';
 
@@ -126,16 +126,10 @@
     var t = opts.t;
     var model = buildModel(opts.nations, opts.computed);
     var presentation = opts.computed.presentation || {};
-    var expanded = new Set(
-      opts.computed.nodes
-        .filter(function (n) {
-          return n.defaultExpanded;
-        })
-        .map(function (n) {
-          return n.id;
-        })
-    );
-    var selected = null;
+    // 聚焦模型（设计文档 5.1）：当前焦点 + 记忆焦点，展开集合由焦点派生。
+    var focusCurrent = 'israel';
+    var focusRemembered = null;
+    var detailNode = null;
     var view = { k: 1, tx: 0, ty: 0 };
     var NS = 'http://www.w3.org/2000/svg';
 
@@ -162,16 +156,79 @@
       );
     }
 
-    function chainSet() {
-      if (!selected) return null;
-      return new Set(model.comp(selected).ancestors.concat(selected));
+    function foci() {
+      return focusRemembered && focusRemembered !== focusCurrent
+        ? [focusRemembered, focusCurrent]
+        : [focusCurrent];
+    }
+    // 两焦点「祖先链 + 自身」的并集：既是展开集合，也是高亮集合。
+    function currentExpanded() {
+      var s = new Set();
+      foci().forEach(function (f) {
+        model.comp(f).ancestors.forEach(function (a) {
+          s.add(a);
+        });
+        s.add(f);
+      });
+      return s;
+    }
+    function sameChain(a, b) {
+      return (
+        a === b ||
+        model.comp(a).ancestors.indexOf(b) >= 0 ||
+        model.comp(b).ancestors.indexOf(a) >= 0
+      );
+    }
+    function inSubtree(f, x) {
+      return f === x || model.comp(f).ancestors.indexOf(x) >= 0;
+    }
+    function normalizeFoci() {
+      if (focusRemembered === focusCurrent) focusRemembered = null;
+    }
+    // 节点点击的聚焦规则（设计文档 5.1）：同链移动 / 记忆支转正 / 异链新支（挤掉旧记忆）
+    function applyFocusClick(x) {
+      if (sameChain(x, focusCurrent)) {
+        focusCurrent = x;
+      } else if (focusRemembered && sameChain(x, focusRemembered)) {
+        var old = focusCurrent;
+        focusCurrent = x;
+        focusRemembered = old;
+      } else {
+        focusRemembered = focusCurrent;
+        focusCurrent = x;
+      }
+      normalizeFoci();
+    }
+    // +/− 钮：未展开 → 同聚焦手势（不开详情）；已展开 → 把其子树内的焦点上移到它，
+    // 焦点若就是它本身则上移到其父节点（折叠一层）。
+    function applyToggle(x) {
+      if (!currentExpanded().has(x)) {
+        applyFocusClick(x);
+        return;
+      }
+      var which = null;
+      if (inSubtree(focusCurrent, x)) which = 'current';
+      else if (focusRemembered && inSubtree(focusRemembered, x)) which = 'remembered';
+      if (!which) return;
+      var f = which === 'current' ? focusCurrent : focusRemembered;
+      var dest = x;
+      if (f === x) {
+        var anc = model.comp(x).ancestors;
+        dest = anc[anc.length - 1];
+        if (!dest) return; // 焦点即根，无可上移
+      }
+      if (which === 'current') focusCurrent = dest;
+      else focusRemembered = dest;
+      normalizeFoci();
     }
 
     function render() {
+      var expanded = currentExpanded();
+      var chain = expanded;
+      var focusSet = new Set(foci());
       var layout = computePositions(model, expanded);
       while (gLinks.firstChild) gLinks.removeChild(gLinks.firstChild);
       while (gNodes.firstChild) gNodes.removeChild(gNodes.firstChild);
-      var chain = chainSet();
 
       layout.positions.forEach(function (p, id) {
         var comp = model.comp(id);
@@ -186,10 +243,9 @@
         var d =
           'M ' + x1 + ' ' + y1 +
           ' C ' + x1 + ' ' + (y1 + dy) + ', ' + x2 + ' ' + (y2 - dy) + ', ' + x2 + ' ' + y2;
-        var onChain = chain && chain.has(id) && chain.has(parent);
-        var cls = 'link' + (chain ? (onChain ? ' link-hl' : ' link-dim') : '');
-        var path = el('path', { d: d, 'class': cls }, gLinks);
-        if (!chain || onChain) path.style.stroke = LINE_COLORS[lineKeyOf(model, id)];
+        var onChain = chain.has(id);
+        var path = el('path', { d: d, 'class': 'link' + (onChain ? ' link-hl' : '') }, gLinks);
+        path.style.stroke = LINE_COLORS[lineKeyOf(model, id)];
       });
 
       layout.positions.forEach(function (p, id) {
@@ -201,7 +257,7 @@
         var cls =
           'node' +
           (node.type === 'link' ? ' node-link' : '') +
-          (chain ? (chain.has(id) ? ' node-hl' : ' node-dim') : '');
+          (focusSet.has(id) ? ' node-hl' : '');
         var g = el('g', { 'class': cls, 'data-id': id }, gNodes);
         var line = lineKeyOf(model, id);
         if (node.type === 'link') {
@@ -233,18 +289,19 @@
         var kids = model.childrenOf(id);
         if (kids.length) {
           var tg = el('g', { 'class': 'toggle', 'data-toggle': id }, g);
-          el('circle', { cx: x + w, cy: y, r: 11, 'class': 'toggle-circle' }, tg);
-          var sign = text(tg, x + w, y + 5, expanded.has(id) ? '−' : '+', 'toggle-sign');
+          el('circle', { cx: x + w, cy: y, r: 17, 'class': 'toggle-circle' }, tg);
+          var sign = text(tg, x + w, y + 7, expanded.has(id) ? '−' : '+', 'toggle-sign');
           sign.setAttribute('text-anchor', 'middle');
         }
       });
 
+      if (detailNode && !layout.positions.has(detailNode)) closeDetail();
       applyView();
       return layout;
     }
 
     function fitView() {
-      var layout = computePositions(model, expanded);
+      var layout = computePositions(model, currentExpanded());
       var w = svg.clientWidth || 800;
       var treeW = (layout.totalCols - 1) * COL_PITCH + CARD_W;
       var k = Math.min(1, Math.max(MIN_K, (w - 24) / treeW));
@@ -269,6 +326,7 @@
       return '<div class="d-row"><span class="d-label">' + esc(label) + '</span><span>' + esc(value) + '</span></div>';
     }
     function openDetail(id) {
+      detailNode = id;
       var node = model.node(id);
       var pres = presentation[id] || {};
       var line = lineKeyOf(model, id);
@@ -305,15 +363,13 @@
       detail.hidden = false;
     }
     function closeDetail() {
+      detailNode = null;
       detail.hidden = true;
       detail.innerHTML = '';
     }
     detail.addEventListener('click', function (e) {
-      if (e.target.closest('[data-close]')) {
-        selected = null;
-        closeDetail();
-        render();
-      }
+      // 只关详情卡，不改变聚焦与展开（设计文档 5.3）
+      if (e.target.closest('[data-close]')) closeDetail();
     });
 
     // ---------- 悬停提示 ----------
@@ -452,20 +508,18 @@
         if (!wasDrag.moved) {
           var tg = wasDrag.toggleId;
           if (tg) {
-            if (expanded.has(tg)) expanded.delete(tg);
-            else expanded.add(tg);
+            applyToggle(tg);
             render();
             return;
           }
           var id = wasDrag.nodeId;
           if (id) {
-            selected = id;
+            applyFocusClick(id);
             render();
             openDetail(id);
           } else {
-            selected = null;
+            // 点空白处只关详情卡，不退出聚焦（设计文档 5.3）
             closeDetail();
-            render();
           }
         }
       }
