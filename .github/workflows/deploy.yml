@@ -1,0 +1,51 @@
+name: deploy
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: 生成 computed.json（确定性生成，内嵌源数据指纹）
+        run: node tools/generate.js
+      - name: 组装站点
+        run: |
+          mkdir -p _site/data _site/locales
+          cp -r web/. _site/
+          cp -r locales/. _site/locales/
+          cp data/nations.json _site/data/nations.json
+          cp data/computed.json _site/data/computed.json
+          HASH=$(node -p "require('./data/computed.json').sourceHash")
+          mkdir -p "_site/data/${HASH}"
+          cp data/computed.json "_site/data/${HASH}/computed.json"
+          echo "SOURCE_HASH=${HASH}" >> "$GITHUB_ENV"
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4
+      - name: 按指纹归档 Release（同一数据只归档一次）
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="data-${SOURCE_HASH:0:12}"
+          if ! gh release view "$TAG" > /dev/null 2>&1; then
+            gh release create "$TAG" data/nations.json data/computed.json \
+              --title "数据快照 $TAG" \
+              --notes "nations.json + computed.json（sourceHash: ${SOURCE_HASH}）"
+          fi
