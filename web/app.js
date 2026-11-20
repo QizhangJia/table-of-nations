@@ -31,6 +31,7 @@
       await window.I18N.load();
       document.title = t('title');
       $('app-title').textContent = t('title');
+      $('search-input').placeholder = t('searchPlaceholder');
     } catch (e) {
       /* 用内置字典继续 */
     }
@@ -82,6 +83,8 @@
       detail: $('detail'),
       zoomIn: $('zoom-in'),
       zoomOut: $('zoom-out'),
+      searchInput: $('search-input'),
+      searchList: $('search-list'),
       nations: nations,
       computed: computed,
       t: t,
