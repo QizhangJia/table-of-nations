@@ -1,2 +1,343 @@
 /* web/css/style.css — 全部样式（第 5 步实现）
-   原则：简约风；色盲友好 Okabe–Ito 色板变量；WCAG AA 对比度；手机/电脑响应式。 */
+   原则：简约风（参照苹果设计语言）；色盲友好 Okabe–Ito 色板；WCAG AA 对比度；手机/电脑响应式。 */
+
+:root {
+  --shem: #0072b2; /* Okabe–Ito blue */
+  --ham: #d55e00; /* Okabe–Ito vermillion */
+  --japheth: #009e73; /* Okabe–Ito bluish green */
+  --ink: #1d1d1f;
+  --sub: #4d4d52;
+  --line: #d9d9de;
+  --card-bg: #ffffff;
+  --accent: #0066cc;
+}
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB",
+    "Microsoft YaHei", "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: #fbfbfd;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- 顶栏 ---------- */
+#topbar {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 10px 18px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+  z-index: 40;
+}
+#topbar h1 {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+#legend {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: var(--sub);
+}
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* ---------- 画布 ---------- */
+#stage {
+  position: relative;
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+#tree {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  cursor: grab;
+}
+#tree:active {
+  cursor: grabbing;
+}
+
+/* 连线 */
+.link {
+  fill: none;
+  stroke-width: 1.5;
+  opacity: 0.5;
+}
+.link-hl {
+  stroke-width: 3;
+  opacity: 1;
+}
+.link-dim {
+  stroke: #d9d9de;
+  opacity: 0.35;
+}
+
+/* 节点卡 */
+.node {
+  cursor: pointer;
+}
+.node-dim {
+  opacity: 0.28;
+}
+.node-hl .card {
+  stroke: var(--accent);
+  stroke-width: 2;
+}
+.card {
+  fill: var(--card-bg);
+  stroke: var(--line);
+  stroke-width: 1;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.07));
+}
+.card-link {
+  fill: #f5f5f7;
+}
+.card-name {
+  font-size: 16px;
+  font-weight: 600;
+  fill: var(--ink);
+}
+.card-name-link {
+  font-size: 14px;
+  font-weight: 500;
+  fill: var(--ink);
+}
+.card-line {
+  font-size: 11px;
+  font-weight: 600;
+}
+.card-sub {
+  font-size: 12px;
+  fill: var(--sub);
+}
+
+/* 展开/折叠钮 */
+.toggle {
+  cursor: pointer;
+}
+.toggle-circle {
+  fill: #ffffff;
+  stroke: #b9b9c0;
+  stroke-width: 1;
+}
+.toggle:hover .toggle-circle {
+  stroke: var(--accent);
+}
+.toggle-sign {
+  font-size: 15px;
+  fill: var(--sub);
+  pointer-events: none;
+}
+
+/* ---------- 悬停提示 ---------- */
+#tooltip {
+  position: absolute;
+  z-index: 20;
+  max-width: 300px;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.97);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.13);
+  font-size: 13px;
+  line-height: 1.55;
+  pointer-events: none;
+}
+.tt-name {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+.tt-row {
+  margin-top: 4px;
+}
+.tt-label {
+  color: var(--sub);
+  margin-right: 6px;
+}
+.tt-ref {
+  color: var(--sub);
+  margin-left: 6px;
+  white-space: nowrap;
+}
+
+/* ---------- 缩放按钮 ---------- */
+#zoom-controls {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  z-index: 25;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16);
+}
+#zoom-controls button {
+  width: 44px;
+  height: 44px;
+  border: none;
+  background: #ffffff;
+  font-size: 22px;
+  line-height: 1;
+  color: var(--ink);
+  cursor: pointer;
+}
+#zoom-controls button + button {
+  border-top: 1px solid var(--line);
+}
+#zoom-controls button:hover {
+  background: #f5f5f7;
+}
+#zoom-controls button:active {
+  background: #ececf0;
+}
+
+/* ---------- 详情卡 ---------- */
+#detail {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 30;
+  width: min(360px, 94vw);
+  padding: 20px 20px 28px;
+  background: #ffffff;
+  box-shadow: -6px 0 24px rgba(0, 0, 0, 0.12);
+  overflow-y: auto;
+  font-size: 14px;
+  line-height: 1.6;
+}
+#detail h2 {
+  margin: 0 28px 2px 0;
+  font-size: 21px;
+  font-weight: 600;
+}
+.d-line {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.d-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  background: #f5f5f7;
+  font-size: 18px;
+  line-height: 1;
+  color: var(--sub);
+  cursor: pointer;
+}
+.d-row {
+  display: flex;
+  gap: 10px;
+  padding: 5px 0;
+  border-bottom: 1px solid #f0f0f3;
+}
+.d-label {
+  flex: 0 0 64px;
+  color: var(--sub);
+}
+.d-section {
+  margin-top: 16px;
+}
+.d-section h3 {
+  margin: 0 0 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--sub);
+  letter-spacing: 0.04em;
+}
+.d-section p {
+  margin: 0;
+}
+.d-section blockquote {
+  margin: 0;
+  padding: 8px 12px;
+  background: #f5f5f7;
+  border-radius: 8px;
+}
+.d-ref {
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--sub);
+}
+#detail a {
+  color: var(--accent);
+  text-decoration: none;
+}
+#detail a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- 状态提示 ---------- */
+#status {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  z-index: 25;
+  max-width: min(420px, 80vw);
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--sub);
+}
+
+/* ---------- 移动端：详情卡变底部抽屉 ---------- */
+@media (max-width: 640px) {
+  #topbar {
+    padding: 8px 14px;
+    gap: 10px;
+  }
+  #topbar h1 {
+    font-size: 17px;
+  }
+  #detail {
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    max-height: 58vh;
+    border-radius: 16px 16px 0 0;
+    box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.14);
+  }
+  #zoom-controls {
+    bottom: 14px;
+    right: 14px;
+  }
+}
