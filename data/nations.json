@@ -904,7 +904,7 @@
     },
     {
       "id": "philistines",
-      "parentId": "casluhim",
+      "parentId": "caphtorim",
       "type": "nation",
       "name": {
         "zh-Hans": "非利士人"
@@ -915,7 +915,7 @@
       "ancestorYears": "",
       "region": "迦南南部沿海（迦萨、亚实基伦、亚实突、以革伦、迦特五城）",
       "modernRef": "今加沙地带及以色列南部沿海",
-      "faith": "大衮、巴力西卜",
+      "faith": "大衮、巴力·西卜",
       "scripturesOrigin": [
         {
           "text": "帕斯鲁细人、迦斯路希人、迦斐托人；从迦斐托出来的有非利士人。",
