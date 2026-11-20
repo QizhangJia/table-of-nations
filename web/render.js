@@ -5,12 +5,15 @@
 (function (global) {
   'use strict';
 
-  var GAP_X = 24; // 兄弟子树块之间的水平间隙（像素）
+  var GAP_X = 24; // 兄弟子树轮廓之间的水平间隙（像素）
   var ROW_GAP = 34; // 行与行之间的垂直间隙（像素）
   var CARD_W = 172; // 民族卡宽度
   var LINK_W = 132; // 连接人物卡宽度
-  var MIN_K = 0.12;
-  var MAX_K = 2.5;
+  var MAX_K = 2.5; // 缩放上限（最近）；下限动态计算 = 整树恰好入屏（设计文档 5.1）
+  var PAN_MARGIN = 120; // 拖动边界：整树包围盒与视口的最小重叠（像素）
+  var SMALL_W = 720; // 小视口阈值：宽或高低于阈值即用焦点近景
+  var SMALL_H = 480;
+  var SMALL_K = 0.85; // 小视口焦点近景的缩放
 
   // Okabe–Ito 色盲友好色板：三系各一色，根为中性灰（另有文字标签，不单靠颜色区分）
   var LINE_COLORS = { shem: '#0072B2', ham: '#D55E00', japheth: '#009E73', root: '#8E8E93' };
@@ -79,10 +82,12 @@
 
   // 纯布局：给定展开集合与焦点链集合，算出每个可见节点的中心 x 与顶部 y（像素）。
   // 紧凑排布与主干对齐（设计文档 5.1）：
-  // - 子树按真实卡宽打包，兄弟块之间留 GAP_X；
-  // - 在焦点链上的子节点称「主干子节点」：父有 1 个主干子节点时父中心与之对齐（主干成竖线）；
-  //   有 2 个时（双焦点在共同祖先处分叉）父中心取两者中点，两支线各成竖线并排而下；
-  //   有 0 个时（焦点本身）父在子节点块上居中；
+  // - 深度轮廓打包：子树占位按逐深度轮廓计算，兄弟子树逐个贴放、只在它实际
+  //   有节点的深度上占宽（浅子树可嵌进深子树旁的空位，如以扫贴在雅各左侧），
+  //   各深度轮廓之间留 GAP_X；
+  // - 在焦点链上的子节点称「主干子节点」：父有 1 个主干子节点时父中心与之对齐
+  //   （主干成竖线）；有 2 个时（双焦点在共同祖先处分叉）父中心取两者中点，
+  //   两支线各成竖线并排而下；有 0 个时（焦点本身）父在子节点轮廓跨度上居中；
   // - 每行高度取该行最高卡片 + ROW_GAP。
   function computePositions(model, expanded, chainSet, t) {
     var tt =
@@ -91,6 +96,9 @@
         return '';
       };
     var chain = chainSet || new Set();
+    // measure(id) 返回（坐标以本节点中心为原点）：
+    //   profile: {相对深度: [左界, 右界]} —— 本子树在各深度的占位轮廓；
+    //   kids: [{id, info, dx}] —— 子节点中心相对本节点中心的水平偏移。
     function measure(id) {
       var node = model.node(id);
       var w = cardWidth(node);
@@ -98,51 +106,83 @@
       var kids = model.childrenOf(id);
       var visibleKids = kids.length && expanded.has(id) ? kids : [];
       if (!visibleKids.length) {
-        return { w: w, h: h, blockW: w, anchor: w / 2, childShift: 0, childLefts: [], childInfos: [], visibleKids: [] };
+        var p0 = {};
+        p0[0] = [-w / 2, w / 2];
+        return { w: w, h: h, profile: p0, kids: [] };
       }
-      var childInfos = visibleKids.map(measure);
-      var lefts = [];
-      var cur = 0;
-      childInfos.forEach(function (ci) {
-        lefts.push(cur);
-        cur += ci.blockW + GAP_X;
+      var infos = visibleKids.map(measure);
+      // 逐个贴放子子树：acc 为已放子树在「子节点行坐标系」下的合并轮廓
+      // （深度 0 = 子节点行）；每个新子树的偏移取所有共享深度上恰好让出
+      // GAP_X 的最小值，无共享深度时不产生约束。
+      var acc = null;
+      var shifts = [];
+      infos.forEach(function (ci) {
+        var s = 0;
+        if (acc) {
+          s = null;
+          Object.keys(ci.profile).forEach(function (d) {
+            if (acc[d]) {
+              var need = acc[d][1] + GAP_X - ci.profile[d][0];
+              s = s === null ? need : Math.max(s, need);
+            }
+          });
+          if (s === null) s = 0;
+        }
+        shifts.push(s);
+        var merged = acc || {};
+        Object.keys(ci.profile).forEach(function (d) {
+          var l = s + ci.profile[d][0];
+          var r = s + ci.profile[d][1];
+          if (merged[d]) {
+            merged[d][0] = Math.min(merged[d][0], l);
+            merged[d][1] = Math.max(merged[d][1], r);
+          } else {
+            merged[d] = [l, r];
+          }
+        });
+        acc = merged;
       });
-      var kidsW = cur - GAP_X;
+      // 主干对齐：在子节点行坐标系下定本节点中心
       var spine = [];
       visibleKids.forEach(function (c, i) {
         if (chain.has(c)) spine.push(i);
       });
       var center;
       if (spine.length === 1) {
-        center = lefts[spine[0]] + childInfos[spine[0]].anchor;
+        center = shifts[spine[0]];
       } else if (spine.length >= 2) {
-        var a = lefts[spine[0]] + childInfos[spine[0]].anchor;
-        var b = lefts[spine[spine.length - 1]] + childInfos[spine[spine.length - 1]].anchor;
-        center = (a + b) / 2;
+        center = (shifts[spine[0]] + shifts[spine[spine.length - 1]]) / 2;
       } else {
-        center = kidsW / 2;
+        var cMin = Infinity;
+        var cMax = -Infinity;
+        Object.keys(acc).forEach(function (d) {
+          cMin = Math.min(cMin, acc[d][0]);
+          cMax = Math.max(cMax, acc[d][1]);
+        });
+        center = (cMin + cMax) / 2;
       }
-      var L = Math.min(0, center - w / 2);
-      var R = Math.max(kidsW, center + w / 2);
+      var profile = {};
+      profile[0] = [-w / 2, w / 2];
+      Object.keys(acc).forEach(function (d) {
+        profile[Number(d) + 1] = [acc[d][0] - center, acc[d][1] - center];
+      });
       return {
         w: w,
         h: h,
-        blockW: R - L,
-        anchor: center - L,
-        childShift: -L,
-        childLefts: lefts,
-        childInfos: childInfos,
-        visibleKids: visibleKids,
+        profile: profile,
+        kids: visibleKids.map(function (c, i) {
+          return { id: c, info: infos[i], dx: shifts[i] - center };
+        }),
       };
     }
     var rootInfo = measure(model.rootId);
     var rowH = [];
     var pos = new Map();
-    (function place(id, inf, blockLeft, depth) {
-      pos.set(id, { x: blockLeft + inf.anchor, y: 0, depth: depth, w: inf.w, h: inf.h });
+    (function place(id, inf, cx, depth) {
+      pos.set(id, { x: cx, y: 0, depth: depth, w: inf.w, h: inf.h });
       rowH[depth] = Math.max(rowH[depth] || 0, inf.h);
-      inf.visibleKids.forEach(function (c, i) {
-        place(c, inf.childInfos[i], blockLeft + inf.childShift + inf.childLefts[i], depth + 1);
+      inf.kids.forEach(function (k) {
+        place(k.id, k.info, cx + k.dx, depth + 1);
       });
     })(model.rootId, rootInfo, 0, 0);
     var yOf = [0];
@@ -151,11 +191,24 @@
       p.y = yOf[p.depth];
     });
     var last = rowH.length - 1;
+    var totalHeight = (yOf[last] || 0) + (rowH[last] || 0);
+    var minX = Infinity;
+    var maxX = -Infinity;
+    pos.forEach(function (p) {
+      minX = Math.min(minX, p.x - p.w / 2);
+      maxX = Math.max(maxX, p.x + p.w / 2);
+    });
     return {
       positions: pos,
-      totalWidth: rootInfo.blockW,
-      totalHeight: (yOf[last] || 0) + (rowH[last] || 0),
+      totalWidth: maxX - minX,
+      totalHeight: totalHeight,
+      bbox: { l: minX, r: maxX, t: 0, b: totalHeight },
     };
+  }
+
+  // 缩放下限（设计文档 5.1）：整棵可见树恰好完整放入视口的缩放，且不超过 1。
+  function minZoomFor(bbox, vw, vh) {
+    return Math.max(0.02, Math.min(1, (vw - 24) / (bbox.r - bbox.l), (vh - 24) / (bbox.b - bbox.t)));
   }
 
   function mount(opts) {
@@ -170,6 +223,8 @@
     var focusRemembered = null;
     var detailNode = null;
     var view = { k: 1, tx: 0, ty: 0 };
+    var lastLayout = null; // 最近一次排布：缩放下限与拖动边界据此计算
+    var userMoved = false; // 用户已手动平移/缩放后，resize 不再自动重新取景
     var NS = 'http://www.w3.org/2000/svg';
 
     function el(tag, attrs, parent) {
@@ -188,7 +243,30 @@
     var gLinks = el('g', {}, gRoot);
     var gNodes = el('g', {}, gRoot);
 
+    function viewport() {
+      return { w: svg.clientWidth || 800, h: svg.clientHeight || 600 };
+    }
+    function currentMinK() {
+      if (!lastLayout) return 0.02;
+      var vp = viewport();
+      return minZoomFor(lastLayout.bbox, vp.w, vp.h);
+    }
+    // 视角钳制（设计文档 5.1）：缩放限制在 [整树入屏, 2.5]；拖动边界保证
+    // 整树包围盒与视口至少重叠 PAN_MARGIN，任何方向都拖不丢。
+    function clampView() {
+      if (!lastLayout) return;
+      var vp = viewport();
+      var b = lastLayout.bbox;
+      view.k = Math.min(MAX_K, Math.max(currentMinK(), view.k));
+      var txLo = PAN_MARGIN - b.r * view.k;
+      var txHi = vp.w - PAN_MARGIN - b.l * view.k;
+      var tyLo = PAN_MARGIN - b.b * view.k;
+      var tyHi = vp.h - PAN_MARGIN - b.t * view.k;
+      view.tx = txLo > txHi ? (vp.w - (b.l + b.r) * view.k) / 2 : Math.min(txHi, Math.max(txLo, view.tx));
+      view.ty = tyLo > tyHi ? (vp.h - (b.t + b.b) * view.k) / 2 : Math.min(tyHi, Math.max(tyLo, view.ty));
+    }
     function applyView() {
+      clampView();
       gRoot.setAttribute(
         'transform',
         'translate(' + view.tx + ',' + view.ty + ') scale(' + view.k + ')'
@@ -266,6 +344,7 @@
       var chain = expanded;
       var focusSet = new Set(foci());
       var layout = computePositions(model, expanded, chain, t);
+      lastLayout = layout;
       while (gLinks.firstChild) gLinks.removeChild(gLinks.firstChild);
       while (gNodes.firstChild) gNodes.removeChild(gNodes.firstChild);
 
@@ -358,17 +437,27 @@
       });
       return r;
     }
+    // 初始相机按视口分档（设计文档 5.1）：大视口按聚焦区域适配；小视口
+    // （手机等）用焦点近景——焦点居中、约 36% 高度、缩放 SMALL_K，不要求
+    // 显示到根、也不要求焦点的子节点完整入屏。
     function fitView() {
-      var layout = computePositions(model, currentExpanded(), currentExpanded(), t);
-      var w = svg.clientWidth || 800;
-      var h = svg.clientHeight || 600;
-      var r = focusRegion(layout);
-      var rw = r.maxX - r.minX;
-      var rh = r.maxY - r.minY;
-      var k = Math.min(1, (w - 32) / rw, (h - 32) / rh);
-      view.k = Math.max(MIN_K, k);
-      view.tx = (w - rw * view.k) / 2 - r.minX * view.k;
-      view.ty = (h - rh * view.k) / 2 - r.minY * view.k;
+      var layout = layoutNow();
+      lastLayout = layout;
+      var vp = viewport();
+      var fp = layout.positions.get(focusCurrent);
+      if ((vp.w < SMALL_W || vp.h < SMALL_H) && fp) {
+        view.k = Math.min(MAX_K, Math.max(currentMinK(), SMALL_K));
+        view.tx = vp.w / 2 - fp.x * view.k;
+        view.ty = vp.h * 0.36 - (fp.y + fp.h / 2) * view.k;
+      } else {
+        var r = focusRegion(layout);
+        var rw = r.maxX - r.minX;
+        var rh = r.maxY - r.minY;
+        var k = Math.min(1, (vp.w - 32) / rw, (vp.h - 32) / rh);
+        view.k = Math.max(currentMinK(), k);
+        view.tx = (vp.w - rw * view.k) / 2 - r.minX * view.k;
+        view.ty = (vp.h - rh * view.k) / 2 - r.minY * view.k;
+      }
       applyView();
     }
     // 点击锚定（设计文档 5.1）：重排前后让被点节点停留在同一屏幕位置
@@ -479,10 +568,11 @@
 
     // ---------- 平移 / 缩放 / 点击 ----------
     function zoomAt(clientX, clientY, k2) {
+      userMoved = true;
       var rect = svg.getBoundingClientRect();
       var rx = clientX - rect.left;
       var ry = clientY - rect.top;
-      k2 = Math.min(MAX_K, Math.max(MIN_K, k2));
+      k2 = Math.min(MAX_K, Math.max(currentMinK(), k2));
       var ratio = k2 / view.k;
       view.tx = rx - (rx - view.tx) * ratio;
       view.ty = ry - (ry - view.ty) * ratio;
@@ -558,6 +648,7 @@
         var dy = e.clientY - drag.y;
         if (Math.abs(dx) + Math.abs(dy) > 3) drag.moved = true;
         if (drag.moved) {
+          userMoved = true;
           view.tx += dx;
           view.ty += dy;
           drag.x = e.clientX;
@@ -607,6 +698,13 @@
     });
     svg.addEventListener('pointerleave', hideTooltip);
 
+    // 视口尺寸变化：用户尚未手动平移/缩放时按新视口重新取景；已手动
+    // 调整过则只重新钳制边界，不夺走用户的位置（设计文档 5.1）。
+    window.addEventListener('resize', function () {
+      if (!userMoved) fitView();
+      else applyView();
+    });
+
     render();
     fitView();
 
@@ -618,6 +716,7 @@
     LINE_COLORS: LINE_COLORS,
     _buildModel: buildModel,
     _computePositions: computePositions,
+    _minZoomFor: minZoomFor,
     _cardHeight: cardHeight,
   };
   global.NationsTree = api;
