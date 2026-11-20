@@ -1,4 +1,3096 @@
 {
   "version": 1,
-  "nodes": []
+  "rootId": "noah",
+  "nodes": [
+    {
+      "id": "noah",
+      "parentId": null,
+      "type": "nation",
+      "name": {
+        "zh-Hans": "挪亚"
+      },
+      "ancestor": {
+        "zh-Hans": "挪亚"
+      },
+      "ancestorYears": "终年 950 岁（创 9:29）",
+      "region": "洪水之后全人类与万族的共同祖先",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "这是挪亚的三个儿子，他们的后裔分散在全地。",
+          "ref": "创世记 9:19",
+          "link": "https://www.bible.com/bible/48/GEN.9.19.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        },
+        {
+          "text": "这些都是挪亚三个儿子的宗族，各随他们的支派立国。洪水以后，他们在地上分为邦国。",
+          "ref": "创世记 10:32",
+          "link": "https://www.bible.com/bible/48/GEN.10.32.CUNPSS-%E7%A5%9E",
+          "weight": 0.9
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "japheth",
+      "parentId": "noah",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "雅弗"
+      },
+      "ancestor": {
+        "zh-Hans": "雅弗"
+      },
+      "ancestorYears": "",
+      "region": "小亚细亚、爱琴海与欧洲沿海一带",
+      "modernRef": "印欧诸族（希腊人、玛代人等）的谱系源头",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "雅弗的儿子是歌篾、玛各、玛代、雅完、土巴、米设、提拉。",
+          "ref": "创世记 10:2",
+          "link": "https://www.bible.com/bible/48/GEN.10.2.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        },
+        {
+          "text": "这些人的后裔将各国的地土、海岛分开居住，各随各的方言、宗族立国。",
+          "ref": "创世记 10:5",
+          "link": "https://www.bible.com/bible/48/GEN.10.5.CUNPSS-%E7%A5%9E",
+          "weight": 0.8
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "gomer",
+      "parentId": "japheth",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "歌篾人"
+      },
+      "ancestor": {
+        "zh-Hans": "歌篾"
+      },
+      "ancestorYears": "",
+      "region": "黑海以北，后迁入安纳托利亚（小亚细亚）",
+      "modernRef": "辛梅里安人（Cimmerians）",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "雅弗的儿子是歌篾、玛各、玛代、雅完、土巴、米设、提拉。",
+          "ref": "创世记 10:2",
+          "link": "https://www.bible.com/bible/48/GEN.10.2.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "ashkenaz",
+      "parentId": "gomer",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "亚实基拿人"
+      },
+      "ancestor": {
+        "zh-Hans": "亚实基拿"
+      },
+      "ancestorYears": "",
+      "region": "亚美尼亚以北、黑海东北一带",
+      "modernRef": "多与斯基泰人相关联",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "歌篾的儿子是亚实基拿、利法、陀迦玛。",
+          "ref": "创世记 10:3",
+          "link": "https://www.bible.com/bible/48/GEN.10.3.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "riphath",
+      "parentId": "gomer",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "利法人"
+      },
+      "ancestor": {
+        "zh-Hans": "利法"
+      },
+      "ancestorYears": "",
+      "region": "小亚细亚北部",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "歌篾的儿子是亚实基拿、利法、陀迦玛。",
+          "ref": "创世记 10:3",
+          "link": "https://www.bible.com/bible/48/GEN.10.3.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "togarmah",
+      "parentId": "gomer",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "陀迦玛人"
+      },
+      "ancestor": {
+        "zh-Hans": "陀迦玛"
+      },
+      "ancestorYears": "",
+      "region": "安纳托利亚东部（亚美尼亚一带）",
+      "modernRef": "提迦玛（Til-garimmu）故地，今土耳其东部",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "歌篾的儿子是亚实基拿、利法、陀迦玛。",
+          "ref": "创世记 10:3",
+          "link": "https://www.bible.com/bible/48/GEN.10.3.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "magog",
+      "parentId": "japheth",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "玛各人"
+      },
+      "ancestor": {
+        "zh-Hans": "玛各"
+      },
+      "ancestorYears": "",
+      "region": "黑海以北草原",
+      "modernRef": "多认作斯基泰人",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "雅弗的儿子是歌篾、玛各、玛代、雅完、土巴、米设、提拉。",
+          "ref": "创世记 10:2",
+          "link": "https://www.bible.com/bible/48/GEN.10.2.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        },
+        {
+          "text": "人子啊，你要向玛各地的歌革，就是罗施、米设、土巴的王，预言攻击他。",
+          "ref": "以西结书 38:2",
+          "link": "https://www.bible.com/bible/48/EZK.38.2.CUNPSS-%E7%A5%9E",
+          "weight": 0.6
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": true,
+      "disputedNote": "玛各的身份说法不一：或指斯基泰人，或为象征性的北方势力名称。"
+    },
+    {
+      "id": "madai",
+      "parentId": "japheth",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "玛代人"
+      },
+      "ancestor": {
+        "zh-Hans": "玛代"
+      },
+      "ancestorYears": "",
+      "region": "伊朗西北部（米底亚）",
+      "modernRef": "玛代（米底亚）王国故地，今伊朗西北部",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "雅弗的儿子是歌篾、玛各、玛代、雅完、土巴、米设、提拉。",
+          "ref": "创世记 10:2",
+          "link": "https://www.bible.com/bible/48/GEN.10.2.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "javan",
+      "parentId": "japheth",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "雅完人"
+      },
+      "ancestor": {
+        "zh-Hans": "雅完"
+      },
+      "ancestorYears": "",
+      "region": "希腊及爱琴海诸岛",
+      "modernRef": "爱奥尼亚希腊人",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "雅弗的儿子是歌篾、玛各、玛代、雅完、土巴、米设、提拉。",
+          "ref": "创世记 10:2",
+          "link": "https://www.bible.com/bible/48/GEN.10.2.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "elishah",
+      "parentId": "javan",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "以利沙人"
+      },
+      "ancestor": {
+        "zh-Hans": "以利沙"
+      },
+      "ancestorYears": "",
+      "region": "地中海沿岸（多认塞浦路斯一带）",
+      "modernRef": "阿拉什亚（Alashiya），多指塞浦路斯",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "雅完的儿子是以利沙、他施、基提、多单。",
+          "ref": "创世记 10:4",
+          "link": "https://www.bible.com/bible/48/GEN.10.4.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "tarshish",
+      "parentId": "javan",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "他施人"
+      },
+      "ancestor": {
+        "zh-Hans": "他施"
+      },
+      "ancestorYears": "",
+      "region": "地中海西部远洋贸易之地",
+      "modernRef": "多指西班牙的塔尔提索（Tartessos）",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "雅完的儿子是以利沙、他施、基提、多单。",
+          "ref": "创世记 10:4",
+          "link": "https://www.bible.com/bible/48/GEN.10.4.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        },
+        {
+          "text": "但约拿却起来，逃往他施去躲避耶和华。",
+          "ref": "约拿书 1:3",
+          "link": "https://www.bible.com/bible/48/JON.1.3.CUNPSS-%E7%A5%9E",
+          "weight": 0.5
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": true,
+      "disputedNote": "他施的位置有西班牙塔尔提索、撒丁岛、突尼斯诸说，未有定论。"
+    },
+    {
+      "id": "kittim",
+      "parentId": "javan",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "基提人"
+      },
+      "ancestor": {
+        "zh-Hans": "基提"
+      },
+      "ancestorYears": "",
+      "region": "塞浦路斯及地中海岛屿",
+      "modernRef": "基提翁（Kition），今塞浦路斯拉纳卡一带",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "雅完的儿子是以利沙、他施、基提、多单。",
+          "ref": "创世记 10:4",
+          "link": "https://www.bible.com/bible/48/GEN.10.4.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "dodanim",
+      "parentId": "javan",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "多单人"
+      },
+      "ancestor": {
+        "zh-Hans": "多单"
+      },
+      "ancestorYears": "",
+      "region": "爱琴海一带（多认罗得岛）",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "雅完的儿子是以利沙、他施、基提、多单。",
+          "ref": "创世记 10:4",
+          "link": "https://www.bible.com/bible/48/GEN.10.4.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": true,
+      "disputedNote": "「多单」与「罗单」为异文读法之别（历代志上 1:7 作罗单），所指或为罗得岛人。"
+    },
+    {
+      "id": "tubal",
+      "parentId": "japheth",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "土巴人"
+      },
+      "ancestor": {
+        "zh-Hans": "土巴"
+      },
+      "ancestorYears": "",
+      "region": "安纳托利亚东部",
+      "modernRef": "提巴尔（Tabal），今土耳其东部",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "雅弗的儿子是歌篾、玛各、玛代、雅完、土巴、米设、提拉。",
+          "ref": "创世记 10:2",
+          "link": "https://www.bible.com/bible/48/GEN.10.2.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "meshek-japheth",
+      "parentId": "japheth",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "米设人"
+      },
+      "ancestor": {
+        "zh-Hans": "米设"
+      },
+      "ancestorYears": "",
+      "region": "安纳托利亚中部",
+      "modernRef": "穆什基人（Mushki），与弗里几亚相关",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "雅弗的儿子是歌篾、玛各、玛代、雅完、土巴、米设、提拉。",
+          "ref": "创世记 10:2",
+          "link": "https://www.bible.com/bible/48/GEN.10.2.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "tiras",
+      "parentId": "japheth",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "提拉人"
+      },
+      "ancestor": {
+        "zh-Hans": "提拉"
+      },
+      "ancestorYears": "",
+      "region": "爱琴海至色雷斯一带",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "雅弗的儿子是歌篾、玛各、玛代、雅完、土巴、米设、提拉。",
+          "ref": "创世记 10:2",
+          "link": "https://www.bible.com/bible/48/GEN.10.2.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": true,
+      "disputedNote": "提拉的身份或指色雷斯人，或指伊特鲁里亚人，说法不一。"
+    },
+    {
+      "id": "ham",
+      "parentId": "noah",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "含"
+      },
+      "ancestor": {
+        "zh-Hans": "含"
+      },
+      "ancestorYears": "",
+      "region": "非洲东北部与迦南地",
+      "modernRef": "埃及、古实（努比亚）、迦南诸族的谱系源头",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "含的儿子是古实、麦西、弗、迦南。",
+          "ref": "创世记 10:6",
+          "link": "https://www.bible.com/bible/48/GEN.10.6.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "cush",
+      "parentId": "ham",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "古实人"
+      },
+      "ancestor": {
+        "zh-Hans": "古实"
+      },
+      "ancestorYears": "",
+      "region": "尼罗河上游（努比亚）",
+      "modernRef": "今苏丹与埃塞俄比亚一带（古实王国）",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "含的儿子是古实、麦西、弗、迦南。",
+          "ref": "创世记 10:6",
+          "link": "https://www.bible.com/bible/48/GEN.10.6.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "seba",
+      "parentId": "cush",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "西巴人"
+      },
+      "ancestor": {
+        "zh-Hans": "西巴"
+      },
+      "ancestorYears": "",
+      "region": "红海两岸（位置有非洲说与阿拉伯说）",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "古实的儿子是西巴、哈腓拉、撒弗他、拉玛、撒弗提迦。",
+          "ref": "创世记 10:7",
+          "link": "https://www.bible.com/bible/48/GEN.10.7.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": true,
+      "disputedNote": "西巴的位置有非洲沿岸与阿拉伯半岛两说。"
+    },
+    {
+      "id": "havilah-cush",
+      "parentId": "cush",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "哈腓拉人"
+      },
+      "ancestor": {
+        "zh-Hans": "哈腓拉"
+      },
+      "ancestorYears": "",
+      "region": "阿拉伯半岛",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "古实的儿子是西巴、哈腓拉、撒弗他、拉玛、撒弗提迦。",
+          "ref": "创世记 10:7",
+          "link": "https://www.bible.com/bible/48/GEN.10.7.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": true,
+      "disputedNote": "「哈腓拉」在创世记多处出现（另见约坍之子哈腓拉），所指地域未必相同。"
+    },
+    {
+      "id": "sabtah",
+      "parentId": "cush",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "撒弗他人"
+      },
+      "ancestor": {
+        "zh-Hans": "撒弗他"
+      },
+      "ancestorYears": "",
+      "region": "阿拉伯半岛南部沿岸",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "古实的儿子是西巴、哈腓拉、撒弗他、拉玛、撒弗提迦。",
+          "ref": "创世记 10:7",
+          "link": "https://www.bible.com/bible/48/GEN.10.7.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "raamah",
+      "parentId": "cush",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "拉玛人"
+      },
+      "ancestor": {
+        "zh-Hans": "拉玛"
+      },
+      "ancestorYears": "",
+      "region": "阿拉伯半岛南部",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "古实的儿子是西巴、哈腓拉、撒弗他、拉玛、撒弗提迦。",
+          "ref": "创世记 10:7",
+          "link": "https://www.bible.com/bible/48/GEN.10.7.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "sheba-raamah",
+      "parentId": "raamah",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "示巴人"
+      },
+      "ancestor": {
+        "zh-Hans": "示巴"
+      },
+      "ancestorYears": "",
+      "region": "阿拉伯半岛西南部",
+      "modernRef": "示巴王国，今也门一带（示巴女王之国）",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "拉玛的儿子是示巴、底但。",
+          "ref": "创世记 10:7",
+          "link": "https://www.bible.com/bible/48/GEN.10.7.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        },
+        {
+          "text": "示巴女王听见所罗门的名声，就来到耶路撒冷，要用难解的话试问所罗门。",
+          "ref": "列王纪上 10:1",
+          "link": "https://www.bible.com/bible/48/1KI.10.1.CUNPSS-%E7%A5%9E",
+          "weight": 0.6
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": "",
+      "archaeology": {
+        "god": "阿勒玛盖（Almaqah）",
+        "note": "示巴（赛伯邑）王国的国神，主持灌溉；其主神庙阿瓦姆神庙（Awam）遗址在今也门马里卜。",
+        "link": "https://en.wikipedia.org/wiki/List_of_pre-Islamic_Arabian_deities"
+      }
+    },
+    {
+      "id": "dedan",
+      "parentId": "raamah",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "底但人"
+      },
+      "ancestor": {
+        "zh-Hans": "底但"
+      },
+      "ancestorYears": "",
+      "region": "阿拉伯半岛西北部绿洲",
+      "modernRef": "底但绿洲，今沙特阿拉伯乌拉（Al-Ula）一带",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "拉玛的儿子是示巴、底但。",
+          "ref": "创世记 10:7",
+          "link": "https://www.bible.com/bible/48/GEN.10.7.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "sabteka",
+      "parentId": "cush",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "撒弗提迦人"
+      },
+      "ancestor": {
+        "zh-Hans": "撒弗提迦"
+      },
+      "ancestorYears": "",
+      "region": "阿拉伯半岛南部",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "古实的儿子是西巴、哈腓拉、撒弗他、拉玛、撒弗提迦。",
+          "ref": "创世记 10:7",
+          "link": "https://www.bible.com/bible/48/GEN.10.7.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "nimrod",
+      "parentId": "cush",
+      "type": "link",
+      "name": {
+        "zh-Hans": "宁录"
+      },
+      "years": ""
+    },
+    {
+      "id": "mizraim",
+      "parentId": "ham",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "埃及人"
+      },
+      "ancestor": {
+        "zh-Hans": "麦西"
+      },
+      "ancestorYears": "",
+      "region": "尼罗河流域",
+      "modernRef": "埃及",
+      "faith": "埃及诸神",
+      "scripturesOrigin": [
+        {
+          "text": "含的儿子是古实、麦西、弗、迦南。",
+          "ref": "创世记 10:6",
+          "link": "https://www.bible.com/bible/48/GEN.10.6.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        },
+        {
+          "text": "麦西生路低人、亚拿米人、利哈比人、拿弗土希人、帕斯鲁细人、迦斯路希人、迦斐托人。",
+          "ref": "创世记 10:13-14",
+          "link": "https://www.bible.com/bible/48/GEN.10.13-14.CUNPSS-%E7%A5%9E",
+          "weight": 0.8
+        }
+      ],
+      "scripturesFaith": [
+        {
+          "text": "因为那夜我要巡行埃及地，把一切头生的，无论是人是牲畜，都击杀了，又要败坏埃及一切的神明。我是耶和华。",
+          "ref": "出埃及记 12:12",
+          "link": "https://www.bible.com/bible/48/EXO.12.12.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        },
+        {
+          "text": "万军之耶和华——以色列的神说：我必刑罚挪的亚扪和法老，并埃及与埃及的神，以及君王，也必刑罚法老和倚靠他的人。",
+          "ref": "耶利米书 46:25",
+          "link": "https://www.bible.com/bible/48/JER.46.25.CUNPSS-%E7%A5%9E",
+          "weight": 0.8
+        }
+      ],
+      "disputed": false,
+      "disputedNote": "",
+      "archaeology": {
+        "god": "亚扪（Amun）",
+        "note": "底比斯的亚扪在新王国时期升为埃及众神之首，与太阳神拉合称亚扪-拉；耶利米书 46:25 亦直呼其名。",
+        "link": "https://www.thebiblejourney.org/biblejourney2/48-the-jewish-world-of-the-old-testament/foreign-gods/"
+      }
+    },
+    {
+      "id": "ludim",
+      "parentId": "mizraim",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "路低人"
+      },
+      "ancestor": {
+        "zh-Hans": "路低"
+      },
+      "ancestorYears": "",
+      "region": "北非（埃及以西）",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "麦西生路低人、亚拿米人、利哈比人、拿弗土希人。",
+          "ref": "创世记 10:13",
+          "link": "https://www.bible.com/bible/48/GEN.10.13.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": true,
+      "disputedNote": "路低人或与吕底亚人相关，说法不一；与闪系的路德为不同支系。"
+    },
+    {
+      "id": "anamim",
+      "parentId": "mizraim",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "亚拿米人"
+      },
+      "ancestor": {
+        "zh-Hans": "亚拿米"
+      },
+      "ancestorYears": "",
+      "region": "北非（具体位置不详）",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "麦西生路低人、亚拿米人、利哈比人、拿弗土希人。",
+          "ref": "创世记 10:13",
+          "link": "https://www.bible.com/bible/48/GEN.10.13.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "lehabim",
+      "parentId": "mizraim",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "利哈比人"
+      },
+      "ancestor": {
+        "zh-Hans": "利哈比"
+      },
+      "ancestorYears": "",
+      "region": "北非西部",
+      "modernRef": "多认作利比亚人",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "麦西生路低人、亚拿米人、利哈比人、拿弗土希人。",
+          "ref": "创世记 10:13",
+          "link": "https://www.bible.com/bible/48/GEN.10.13.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "naphtuhim",
+      "parentId": "mizraim",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "拿弗土希人"
+      },
+      "ancestor": {
+        "zh-Hans": "拿弗土希"
+      },
+      "ancestorYears": "",
+      "region": "尼罗河三角洲（下埃及）",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "麦西生路低人、亚拿米人、利哈比人、拿弗土希人。",
+          "ref": "创世记 10:13",
+          "link": "https://www.bible.com/bible/48/GEN.10.13.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "pathrusim",
+      "parentId": "mizraim",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "帕斯鲁细人"
+      },
+      "ancestor": {
+        "zh-Hans": "帕斯鲁细"
+      },
+      "ancestorYears": "",
+      "region": "上埃及（帕提洛）",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "麦西生路低人、亚拿米人、利哈比人、拿弗土希人、帕斯鲁细人、迦斯路希人、迦斐托人。",
+          "ref": "创世记 10:13-14",
+          "link": "https://www.bible.com/bible/48/GEN.10.13-14.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "casluhim",
+      "parentId": "mizraim",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "迦斯路希人"
+      },
+      "ancestor": {
+        "zh-Hans": "迦斯路希"
+      },
+      "ancestorYears": "",
+      "region": "埃及与迦南之间的沿海地带",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "帕斯鲁细人、迦斯路希人、迦斐托人；从迦斯路希人生出非利士人。",
+          "ref": "创世记 10:14",
+          "link": "https://www.bible.com/bible/48/GEN.10.14.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "philistines",
+      "parentId": "casluhim",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "非利士人"
+      },
+      "ancestor": {
+        "zh-Hans": ""
+      },
+      "ancestorYears": "",
+      "region": "迦南南部沿海（迦萨、亚实基伦、亚实突、以革伦、迦特五城）",
+      "modernRef": "今加沙地带及以色列南部沿海",
+      "faith": "大衮、巴力西卜",
+      "scripturesOrigin": [
+        {
+          "text": "帕斯鲁细人、迦斯路希人、迦斐托人；从迦斯路希人生出非利士人。",
+          "ref": "创世记 10:14",
+          "link": "https://www.bible.com/bible/48/GEN.10.14.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        },
+        {
+          "text": "耶和华说：以色列人哪，我岂不看你们如古实人吗？我岂不是领以色列人出埃及地，领非利士人出迦斐托，领亚兰人出吉珥吗？",
+          "ref": "阿摩司书 9:7",
+          "link": "https://www.bible.com/bible/48/AMO.9.7.CUNPSS-%E7%A5%9E",
+          "weight": 0.8
+        }
+      ],
+      "scripturesFaith": [
+        {
+          "text": "非利士人将神的约柜从以便以谢抬到亚实突，就把神的约柜抬进大衮庙，放在大衮的旁边。",
+          "ref": "撒母耳记上 5:1-2",
+          "link": "https://www.bible.com/bible/48/1SA.5.1-2.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        },
+        {
+          "text": "非利士的首领聚集，要给他们的神大衮献大祭，并且欢乐，因为他们说：我们的神将我们的仇敌参孙交在我们手中了。",
+          "ref": "士师记 16:23",
+          "link": "https://www.bible.com/bible/48/JDG.16.23.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        },
+        {
+          "text": "你们去问以革伦的神巴力西卜，我这病能好不能好？",
+          "ref": "列王纪下 1:2",
+          "link": "https://www.bible.com/bible/48/2KI.1.2.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        },
+        {
+          "text": "又把他的军装放在亚斯他录庙里，将他的尸身钉在伯珊的城墙上。",
+          "ref": "撒母耳记上 31:10",
+          "link": "https://www.bible.com/bible/48/1SA.31.10.CUNPSS-%E7%A5%9E",
+          "weight": 0.7
+        },
+        {
+          "text": "以色列人又行耶和华眼中看为恶的事，去侍奉诸巴力和亚斯他录，并亚兰的神、西顿的神、摩押的神、亚扪人的神、非利士人的神，离弃耶和华，不侍奉他。",
+          "ref": "士师记 10:6",
+          "link": "https://www.bible.com/bible/48/JDG.10.6.CUNPSS-%E7%A5%9E",
+          "weight": 0.65
+        }
+      ],
+      "disputed": false,
+      "disputedNote": "",
+      "archaeology": {
+        "god": "大衮（Dagon）",
+        "note": "大衮本为西北闪族的谷物神达贡（Dagan），乌加里特有其神庙遗址；非利士五城各设大衮庙，圣经记亚实突、迦萨、伯珊三处。",
+        "link": "https://www.openscrollproject.org/app/gods"
+      }
+    },
+    {
+      "id": "caphtorim",
+      "parentId": "mizraim",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "迦斐托人"
+      },
+      "ancestor": {
+        "zh-Hans": "迦斐托"
+      },
+      "ancestorYears": "",
+      "region": "爱琴海岛屿",
+      "modernRef": "多认作克里特岛",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "帕斯鲁细人、迦斯路希人、迦斐托人；从迦斯路希人生出非利士人。",
+          "ref": "创世记 10:14",
+          "link": "https://www.bible.com/bible/48/GEN.10.14.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": true,
+      "disputedNote": "迦斐托多认作克里特岛，亦有塞浦路斯等说。"
+    },
+    {
+      "id": "put",
+      "parentId": "ham",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "弗人"
+      },
+      "ancestor": {
+        "zh-Hans": "弗"
+      },
+      "ancestorYears": "",
+      "region": "北非（埃及以西）",
+      "modernRef": "多认作利比亚一带",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "含的儿子是古实、麦西、弗、迦南。",
+          "ref": "创世记 10:6",
+          "link": "https://www.bible.com/bible/48/GEN.10.6.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "canaan",
+      "parentId": "ham",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "迦南人"
+      },
+      "ancestor": {
+        "zh-Hans": "迦南"
+      },
+      "ancestorYears": "",
+      "region": "黎凡特（约旦河以西及叙利亚沿海）",
+      "modernRef": "今以色列、巴勒斯坦、黎巴嫩及叙利亚沿海",
+      "faith": "巴力、亚舍拉",
+      "scripturesOrigin": [
+        {
+          "text": "含的儿子是古实、麦西、弗、迦南。",
+          "ref": "创世记 10:6",
+          "link": "https://www.bible.com/bible/48/GEN.10.6.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        },
+        {
+          "text": "耶和华说：迦南当受咒诅，必给他弟兄作奴仆的奴仆。",
+          "ref": "创世记 9:25",
+          "link": "https://www.bible.com/bible/48/GEN.9.25.CUNPSS-%E7%A5%9E",
+          "weight": 0.6
+        }
+      ],
+      "scripturesFaith": [
+        {
+          "text": "以色列人行耶和华眼中看为恶的事，去侍奉诸巴力，离弃了领他们出埃及地的耶和华、他们列祖的神，去随从外邦诸神，叩拜他们，惹耶和华发怒。",
+          "ref": "士师记 2:11-12",
+          "link": "https://www.bible.com/bible/48/JDG.2.11-12.CUNPSS-%E7%A5%9E",
+          "weight": 0.7
+        },
+        {
+          "text": "他们离弃耶和华，去侍奉巴力和亚斯他录。",
+          "ref": "士师记 2:13",
+          "link": "https://www.bible.com/bible/48/JDG.2.13.CUNPSS-%E7%A5%9E",
+          "weight": 0.8
+        },
+        {
+          "text": "以色列人行耶和华眼中看为恶的事，忘记耶和华他们的神，去侍奉诸巴力和亚舍拉。",
+          "ref": "士师记 3:7",
+          "link": "https://www.bible.com/bible/48/JDG.3.7.CUNPSS-%E7%A5%9E",
+          "weight": 0.75
+        }
+      ],
+      "disputed": false,
+      "disputedNote": "",
+      "archaeology": {
+        "god": "巴力、亚舍拉（Baal、Asherah）",
+        "note": "1929 年起于乌加里特（今拉什姆拉）出土的大批泥板神话（如《巴力循环》）是认识迦南宗教的主要来源：万神殿以伊尔（El）为首，巴力为最活跃的主神。",
+        "link": "https://en.wikipedia.org/wiki/Canaanite_religion"
+      }
+    },
+    {
+      "id": "sidon",
+      "parentId": "canaan",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "西顿人"
+      },
+      "ancestor": {
+        "zh-Hans": "西顿"
+      },
+      "ancestorYears": "",
+      "region": "腓尼基沿海城邦",
+      "modernRef": "西顿，今黎巴嫩赛达",
+      "faith": "亚斯他录（西顿人的女神）",
+      "scripturesOrigin": [
+        {
+          "text": "迦南生长子西顿，又生赫。",
+          "ref": "创世记 10:15",
+          "link": "https://www.bible.com/bible/48/GEN.10.15.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [
+        {
+          "text": "因为所罗门随从西顿人的女神亚斯他录和亚扪人可憎的神米勒公，不效法他父亲大卫诚诚实实地顺服耶和华。",
+          "ref": "列王纪上 11:5",
+          "link": "https://www.bible.com/bible/48/1KI.11.5.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        },
+        {
+          "text": "以色列人又行耶和华眼中看为恶的事，去侍奉诸巴力和亚斯他录，并亚兰的神、西顿的神、摩押的神、亚扪人的神、非利士人的神，离弃耶和华，不侍奉他。",
+          "ref": "士师记 10:6",
+          "link": "https://www.bible.com/bible/48/JDG.10.6.CUNPSS-%E7%A5%9E",
+          "weight": 0.65
+        }
+      ],
+      "disputed": false,
+      "disputedNote": "",
+      "archaeology": {
+        "god": "亚斯他录（Astarte）",
+        "note": "腓尼基宗教为迦南宗教的延续，西顿、推罗以巴力与阿斯塔尔特为核心崇拜，铭文与神庙遗存见于今黎巴嫩沿岸。",
+        "link": "https://en.wikipedia.org/wiki/Phoenician_religion"
+      }
+    },
+    {
+      "id": "heth",
+      "parentId": "canaan",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "赫人"
+      },
+      "ancestor": {
+        "zh-Hans": "赫"
+      },
+      "ancestorYears": "",
+      "region": "安纳托利亚中部，后及叙利亚",
+      "modernRef": "赫梯（赫梯帝国）",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "迦南生长子西顿，又生赫。",
+          "ref": "创世记 10:15",
+          "link": "https://www.bible.com/bible/48/GEN.10.15.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [
+        {
+          "text": "以色列人竟住在迦南人、赫人、亚摩利人、比利洗人、希未人、耶布斯人中间，娶他们的女儿为妻，将自己的女儿嫁给他们的儿子，并侍奉他们的神。",
+          "ref": "士师记 3:5-6",
+          "link": "https://www.bible.com/bible/48/JDG.3.5-6.CUNPSS-%E7%A5%9E",
+          "weight": 0.5
+        }
+      ],
+      "disputed": false,
+      "disputedNote": "",
+      "archaeology": {
+        "god": "特舒卜（Teshub）",
+        "note": "赫梯万神殿以胡里安风暴神特舒卜及其配偶赫帕特（Hepat）为首，赫梯神话多保存胡里安版本。",
+        "link": "https://www.britannica.com/topic/Syrian-and-Palestinian-religion/Other-early-gods"
+      }
+    },
+    {
+      "id": "jebusites",
+      "parentId": "canaan",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "耶布斯人"
+      },
+      "ancestor": {
+        "zh-Hans": "耶布斯"
+      },
+      "ancestorYears": "",
+      "region": "耶路撒冷一带",
+      "modernRef": "耶布斯即耶路撒冷的前身",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "和耶布斯人、亚摩利人、革迦撒人、希未人。",
+          "ref": "创世记 10:16",
+          "link": "https://www.bible.com/bible/48/GEN.10.16.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "amorites",
+      "parentId": "canaan",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "亚摩利人"
+      },
+      "ancestor": {
+        "zh-Hans": "亚摩利"
+      },
+      "ancestorYears": "",
+      "region": "迦南山地与约旦河东高原",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "和耶布斯人、亚摩利人、革迦撒人、希未人。",
+          "ref": "创世记 10:16",
+          "link": "https://www.bible.com/bible/48/GEN.10.16.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [
+        {
+          "text": "若是你们以侍奉耶和华为不好，今日就可以选择所要侍奉的：是你们列祖在大河那边所侍奉的神呢？是你们所住这地的亚摩利人的神呢？至于我和我家，我们必定侍奉耶和华。",
+          "ref": "约书亚记 24:15",
+          "link": "https://www.bible.com/bible/48/JOS.24.15.CUNPSS-%E7%A5%9E",
+          "weight": 0.85
+        }
+      ],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "girgashites",
+      "parentId": "canaan",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "革迦撒人"
+      },
+      "ancestor": {
+        "zh-Hans": "革迦撒"
+      },
+      "ancestorYears": "",
+      "region": "迦南地（多认加利利海以东）",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "和耶布斯人、亚摩利人、革迦撒人、希未人。",
+          "ref": "创世记 10:16",
+          "link": "https://www.bible.com/bible/48/GEN.10.16.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "hivites",
+      "parentId": "canaan",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "希未人"
+      },
+      "ancestor": {
+        "zh-Hans": "希未"
+      },
+      "ancestorYears": "",
+      "region": "迦南北部与黎巴嫩一带",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "和耶布斯人、亚摩利人、革迦撒人、希未人。",
+          "ref": "创世记 10:16",
+          "link": "https://www.bible.com/bible/48/GEN.10.16.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "arkites",
+      "parentId": "canaan",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "亚基人"
+      },
+      "ancestor": {
+        "zh-Hans": "亚基"
+      },
+      "ancestorYears": "",
+      "region": "腓尼基沿海（阿尔卡）",
+      "modernRef": "今黎巴嫩北部阿尔卡遗址",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "亚基人、西尼人、亚瓦底人、洗玛利人、哈马人。",
+          "ref": "创世记 10:17-18",
+          "link": "https://www.bible.com/bible/48/GEN.10.17-18.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "sinites",
+      "parentId": "canaan",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "西尼人"
+      },
+      "ancestor": {
+        "zh-Hans": "西尼"
+      },
+      "ancestorYears": "",
+      "region": "腓尼基沿海",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "亚基人、西尼人、亚瓦底人、洗玛利人、哈马人。",
+          "ref": "创世记 10:17-18",
+          "link": "https://www.bible.com/bible/48/GEN.10.17-18.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "arvadites",
+      "parentId": "canaan",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "亚瓦底人"
+      },
+      "ancestor": {
+        "zh-Hans": "亚瓦底"
+      },
+      "ancestorYears": "",
+      "region": "阿尔瓦德岛（叙利亚沿海）",
+      "modernRef": "今叙利亚阿尔瓦德岛",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "亚基人、西尼人、亚瓦底人、洗玛利人、哈马人。",
+          "ref": "创世记 10:17-18",
+          "link": "https://www.bible.com/bible/48/GEN.10.17-18.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "zemarites",
+      "parentId": "canaan",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "洗玛利人"
+      },
+      "ancestor": {
+        "zh-Hans": "洗玛利"
+      },
+      "ancestorYears": "",
+      "region": "腓尼基沿海（苏姆拉）",
+      "modernRef": "今黎巴嫩一带苏姆拉遗址",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "亚基人、西尼人、亚瓦底人、洗玛利人、哈马人。",
+          "ref": "创世记 10:17-18",
+          "link": "https://www.bible.com/bible/48/GEN.10.17-18.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "hamathites",
+      "parentId": "canaan",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "哈马人"
+      },
+      "ancestor": {
+        "zh-Hans": "哈马"
+      },
+      "ancestorYears": "",
+      "region": "奥伦特河畔（哈马）",
+      "modernRef": "今叙利亚哈马",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "亚基人、西尼人、亚瓦底人、洗玛利人、哈马人。后来迦南的诸族分散了。",
+          "ref": "创世记 10:18",
+          "link": "https://www.bible.com/bible/48/GEN.10.18.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "shem",
+      "parentId": "noah",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "闪"
+      },
+      "ancestor": {
+        "zh-Hans": "闪"
+      },
+      "ancestorYears": "终年 600 岁（创 11:10-11）",
+      "region": "美索不达米亚与阿拉伯半岛、黎凡特",
+      "modernRef": "闪米特诸族（亚述、亚兰、希伯来、阿拉伯等）的谱系源头",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "雅弗的哥哥闪，是希伯子孙之祖，他也生了儿子。",
+          "ref": "创世记 10:21",
+          "link": "https://www.bible.com/bible/48/GEN.10.21.CUNPSS-%E7%A5%9E",
+          "weight": 0.95
+        },
+        {
+          "text": "闪的儿子是以拦、亚述、亚法撒、路德、亚兰。",
+          "ref": "创世记 10:22",
+          "link": "https://www.bible.com/bible/48/GEN.10.22.CUNPSS-%E7%A5%9E",
+          "weight": 0.9
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "elam",
+      "parentId": "shem",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "以拦人"
+      },
+      "ancestor": {
+        "zh-Hans": "以拦"
+      },
+      "ancestorYears": "",
+      "region": "伊朗西南部（底格里斯河以东）",
+      "modernRef": "埃兰（Elam），今伊朗胡齐斯坦一带",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "闪的儿子是以拦、亚述、亚法撒、路德、亚兰。",
+          "ref": "创世记 10:22",
+          "link": "https://www.bible.com/bible/48/GEN.10.22.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": "",
+      "archaeology": {
+        "god": "因舒什纳克（Inshushinak）",
+        "note": "以拦万神殿的主要神祇之一，苏萨城的守护神，称「苏萨之主」。",
+        "link": "https://en.wikipedia.org/wiki/List_of_Mesopotamian_deities"
+      }
+    },
+    {
+      "id": "asshur",
+      "parentId": "shem",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "亚述人"
+      },
+      "ancestor": {
+        "zh-Hans": "亚述"
+      },
+      "ancestorYears": "",
+      "region": "底格里斯河上游（美索不达米亚北部）",
+      "modernRef": "亚述帝国，今伊拉克北部",
+      "faith": "尼斯洛（亚述王所拜之神）",
+      "scripturesOrigin": [
+        {
+          "text": "闪的儿子是以拦、亚述、亚法撒、路德、亚兰。",
+          "ref": "创世记 10:22",
+          "link": "https://www.bible.com/bible/48/GEN.10.22.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [
+        {
+          "text": "一日，西拿基立在他的神尼斯洛庙里叩拜，他儿子亚得米勒和沙利色用刀杀了他，他们就逃到亚拉腊地去。",
+          "ref": "列王纪下 19:37",
+          "link": "https://www.bible.com/bible/48/2KI.19.37.CUNPSS-%E7%A5%9E",
+          "weight": 0.85
+        }
+      ],
+      "disputed": false,
+      "disputedNote": "",
+      "archaeology": {
+        "god": "亚述神（Ashur）",
+        "note": "亚述的国神，与都城亚述同名；亚述王只自称这位神的「总督」，王权属于神本身。",
+        "link": "https://en.wikipedia.org/wiki/List_of_Mesopotamian_deities"
+      }
+    },
+    {
+      "id": "lud-shem",
+      "parentId": "shem",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "路德人"
+      },
+      "ancestor": {
+        "zh-Hans": "路德"
+      },
+      "ancestorYears": "",
+      "region": "小亚细亚西部",
+      "modernRef": "吕底亚（Lydia）",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "闪的儿子是以拦、亚述、亚法撒、路德、亚兰。",
+          "ref": "创世记 10:22",
+          "link": "https://www.bible.com/bible/48/GEN.10.22.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "aram",
+      "parentId": "shem",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "亚兰人"
+      },
+      "ancestor": {
+        "zh-Hans": "亚兰"
+      },
+      "ancestorYears": "",
+      "region": "叙利亚（大马士革一带）",
+      "modernRef": "亚兰人，今叙利亚",
+      "faith": "临门（叙利亚之神）",
+      "scripturesOrigin": [
+        {
+          "text": "闪的儿子是以拦、亚述、亚法撒、路德、亚兰。",
+          "ref": "创世记 10:22",
+          "link": "https://www.bible.com/bible/48/GEN.10.22.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [
+        {
+          "text": "在临门庙里，当我主人进去叩拜的时候，我也屈身叩拜；我在临门庙里屈身叩拜，求耶和华饶恕我这仆人。",
+          "ref": "列王纪下 5:18",
+          "link": "https://www.bible.com/bible/48/2KI.5.18.CUNPSS-%E7%A5%9E",
+          "weight": 0.8
+        },
+        {
+          "text": "以色列人又行耶和华眼中看为恶的事，去侍奉诸巴力和亚斯他录，并亚兰的神、西顿的神、摩押的神、亚扪人的神、非利士人的神，离弃耶和华，不侍奉他。",
+          "ref": "士师记 10:6",
+          "link": "https://www.bible.com/bible/48/JDG.10.6.CUNPSS-%E7%A5%9E",
+          "weight": 0.7
+        }
+      ],
+      "disputed": false,
+      "disputedNote": "",
+      "archaeology": {
+        "god": "哈达（Hadad）",
+        "note": "亚兰主神为风暴神哈达，圣经中的「临门」即其别名；萨马勒（Sam'al）出土约主前 775 年的哈达巨像，便哈达等亚兰王名即「哈达之子」。",
+        "link": "https://www.openscrollproject.org/app/gods"
+      }
+    },
+    {
+      "id": "uz",
+      "parentId": "aram",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "乌斯人"
+      },
+      "ancestor": {
+        "zh-Hans": "乌斯"
+      },
+      "ancestorYears": "",
+      "region": "亚兰与以东之间（约伯的故乡）",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "亚兰的儿子是乌斯、户勒、基帖、玛施。",
+          "ref": "创世记 10:23",
+          "link": "https://www.bible.com/bible/48/GEN.10.23.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        },
+        {
+          "text": "乌斯地有一个人名叫约伯；那人完全正直，敬畏神，远离恶事。",
+          "ref": "约伯记 1:1",
+          "link": "https://www.bible.com/bible/48/JOB.1.1.CUNPSS-%E7%A5%9E",
+          "weight": 0.6
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": true,
+      "disputedNote": "乌斯地的位置有以东、亚兰南部诸说，未有定论。"
+    },
+    {
+      "id": "hul",
+      "parentId": "aram",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "户勒人"
+      },
+      "ancestor": {
+        "zh-Hans": "户勒"
+      },
+      "ancestorYears": "",
+      "region": "叙利亚一带（具体位置不详）",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "亚兰的儿子是乌斯、户勒、基帖、玛施。",
+          "ref": "创世记 10:23",
+          "link": "https://www.bible.com/bible/48/GEN.10.23.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "gether",
+      "parentId": "aram",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "基帖人"
+      },
+      "ancestor": {
+        "zh-Hans": "基帖"
+      },
+      "ancestorYears": "",
+      "region": "叙利亚一带（具体位置不详）",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "亚兰的儿子是乌斯、户勒、基帖、玛施。",
+          "ref": "创世记 10:23",
+          "link": "https://www.bible.com/bible/48/GEN.10.23.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "mash",
+      "parentId": "aram",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "玛施人"
+      },
+      "ancestor": {
+        "zh-Hans": "玛施"
+      },
+      "ancestorYears": "",
+      "region": "叙利亚至美索不达米亚一带（具体位置不详）",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "亚兰的儿子是乌斯、户勒、基帖、玛施。",
+          "ref": "创世记 10:23",
+          "link": "https://www.bible.com/bible/48/GEN.10.23.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "arphaxad",
+      "parentId": "shem",
+      "type": "link",
+      "name": {
+        "zh-Hans": "亚法撒"
+      },
+      "years": "终年 438 岁（创 11:12-13）"
+    },
+    {
+      "id": "shelah",
+      "parentId": "arphaxad",
+      "type": "link",
+      "name": {
+        "zh-Hans": "沙拉"
+      },
+      "years": "终年 433 岁（创 11:14-15）"
+    },
+    {
+      "id": "eber",
+      "parentId": "shelah",
+      "type": "link",
+      "name": {
+        "zh-Hans": "希伯"
+      },
+      "years": "终年 464 岁（创 11:16-17）"
+    },
+    {
+      "id": "peleg",
+      "parentId": "eber",
+      "type": "link",
+      "name": {
+        "zh-Hans": "法勒"
+      },
+      "years": "终年 239 岁（创 11:18-19）"
+    },
+    {
+      "id": "joktan",
+      "parentId": "eber",
+      "type": "link",
+      "name": {
+        "zh-Hans": "约坍"
+      },
+      "years": ""
+    },
+    {
+      "id": "almodad",
+      "parentId": "joktan",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "亚摩答人"
+      },
+      "ancestor": {
+        "zh-Hans": "亚摩答"
+      },
+      "ancestorYears": "",
+      "region": "阿拉伯半岛南部",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "约坍生亚摩答、沙列、哈萨玛非、耶拉。",
+          "ref": "创世记 10:26",
+          "link": "https://www.bible.com/bible/48/GEN.10.26.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "sheleph",
+      "parentId": "joktan",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "沙列人"
+      },
+      "ancestor": {
+        "zh-Hans": "沙列"
+      },
+      "ancestorYears": "",
+      "region": "阿拉伯半岛南部",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "约坍生亚摩答、沙列、哈萨玛非、耶拉。",
+          "ref": "创世记 10:26",
+          "link": "https://www.bible.com/bible/48/GEN.10.26.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "hazarmaveth",
+      "parentId": "joktan",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "哈萨玛非人"
+      },
+      "ancestor": {
+        "zh-Hans": "哈萨玛非"
+      },
+      "ancestorYears": "",
+      "region": "阿拉伯半岛南部",
+      "modernRef": "多认作也门哈德拉毛（Hadhramaut）",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "约坍生亚摩答、沙列、哈萨玛非、耶拉。",
+          "ref": "创世记 10:26",
+          "link": "https://www.bible.com/bible/48/GEN.10.26.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "jerah",
+      "parentId": "joktan",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "耶拉人"
+      },
+      "ancestor": {
+        "zh-Hans": "耶拉"
+      },
+      "ancestorYears": "",
+      "region": "阿拉伯半岛南部",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "约坍生亚摩答、沙列、哈萨玛非、耶拉。",
+          "ref": "创世记 10:26",
+          "link": "https://www.bible.com/bible/48/GEN.10.26.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "hadoram",
+      "parentId": "joktan",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "哈多兰人"
+      },
+      "ancestor": {
+        "zh-Hans": "哈多兰"
+      },
+      "ancestorYears": "",
+      "region": "阿拉伯半岛南部",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "约坍生哈多兰、乌萨、德拉。",
+          "ref": "创世记 10:27",
+          "link": "https://www.bible.com/bible/48/GEN.10.27.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "uzal",
+      "parentId": "joktan",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "乌萨人"
+      },
+      "ancestor": {
+        "zh-Hans": "乌萨"
+      },
+      "ancestorYears": "",
+      "region": "阿拉伯半岛西南部",
+      "modernRef": "多认作也门萨那（Sanaa）古名",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "约坍生哈多兰、乌萨、德拉。",
+          "ref": "创世记 10:27",
+          "link": "https://www.bible.com/bible/48/GEN.10.27.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "diklah",
+      "parentId": "joktan",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "德拉人"
+      },
+      "ancestor": {
+        "zh-Hans": "德拉"
+      },
+      "ancestorYears": "",
+      "region": "阿拉伯半岛南部",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "约坍生哈多兰、乌萨、德拉。",
+          "ref": "创世记 10:27",
+          "link": "https://www.bible.com/bible/48/GEN.10.27.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "obal",
+      "parentId": "joktan",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "俄巴路人"
+      },
+      "ancestor": {
+        "zh-Hans": "俄巴路"
+      },
+      "ancestorYears": "",
+      "region": "阿拉伯半岛南部",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "约坍生俄巴路、亚比玛利、示巴。",
+          "ref": "创世记 10:28",
+          "link": "https://www.bible.com/bible/48/GEN.10.28.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "abimael",
+      "parentId": "joktan",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "亚比玛利人"
+      },
+      "ancestor": {
+        "zh-Hans": "亚比玛利"
+      },
+      "ancestorYears": "",
+      "region": "阿拉伯半岛南部",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "约坍生俄巴路、亚比玛利、示巴。",
+          "ref": "创世记 10:28",
+          "link": "https://www.bible.com/bible/48/GEN.10.28.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "sheba-joktan",
+      "parentId": "joktan",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "示巴人（约坍系）"
+      },
+      "ancestor": {
+        "zh-Hans": "示巴"
+      },
+      "ancestorYears": "",
+      "region": "阿拉伯半岛南部",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "约坍生俄巴路、亚比玛利、示巴。",
+          "ref": "创世记 10:28",
+          "link": "https://www.bible.com/bible/48/GEN.10.28.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": true,
+      "disputedNote": "与古实系拉玛之子示巴同名，传统视为不同支系，同在阿拉伯半岛南部活动。"
+    },
+    {
+      "id": "ophir",
+      "parentId": "joktan",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "俄斐人"
+      },
+      "ancestor": {
+        "zh-Hans": "俄斐"
+      },
+      "ancestorYears": "",
+      "region": "产金之地（位置有争议）",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "约坍生俄斐、哈腓拉、约巴。这都是约坍的儿子。",
+          "ref": "创世记 10:29",
+          "link": "https://www.bible.com/bible/48/GEN.10.29.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": true,
+      "disputedNote": "俄斐的位置有阿拉伯半岛南部、印度、东非诸说，未有定论。"
+    },
+    {
+      "id": "havilah-joktan",
+      "parentId": "joktan",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "哈腓拉人（约坍系）"
+      },
+      "ancestor": {
+        "zh-Hans": "哈腓拉"
+      },
+      "ancestorYears": "",
+      "region": "阿拉伯半岛",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "约坍生俄斐、哈腓拉、约巴。这都是约坍的儿子。",
+          "ref": "创世记 10:29",
+          "link": "https://www.bible.com/bible/48/GEN.10.29.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "jobab",
+      "parentId": "joktan",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "约巴人"
+      },
+      "ancestor": {
+        "zh-Hans": "约巴"
+      },
+      "ancestorYears": "",
+      "region": "阿拉伯半岛南部",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "约坍生俄斐、哈腓拉、约巴。这都是约坍的儿子。",
+          "ref": "创世记 10:29",
+          "link": "https://www.bible.com/bible/48/GEN.10.29.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "reu",
+      "parentId": "peleg",
+      "type": "link",
+      "name": {
+        "zh-Hans": "拉吴"
+      },
+      "years": "终年 239 岁（创 11:20-21）"
+    },
+    {
+      "id": "serug",
+      "parentId": "reu",
+      "type": "link",
+      "name": {
+        "zh-Hans": "西鹿"
+      },
+      "years": "终年 230 岁（创 11:22-23）"
+    },
+    {
+      "id": "nahor-chain",
+      "parentId": "serug",
+      "type": "link",
+      "name": {
+        "zh-Hans": "拿鹤"
+      },
+      "years": "终年 148 岁（创 11:24-25）"
+    },
+    {
+      "id": "terah",
+      "parentId": "nahor-chain",
+      "type": "link",
+      "name": {
+        "zh-Hans": "他拉"
+      },
+      "years": "终年 205 岁（创 11:32）"
+    },
+    {
+      "id": "abraham",
+      "parentId": "terah",
+      "type": "link",
+      "name": {
+        "zh-Hans": "亚伯拉罕"
+      },
+      "years": "终年 175 岁（创 25:7）"
+    },
+    {
+      "id": "haran",
+      "parentId": "terah",
+      "type": "link",
+      "name": {
+        "zh-Hans": "哈兰"
+      },
+      "years": ""
+    },
+    {
+      "id": "lot",
+      "parentId": "haran",
+      "type": "link",
+      "name": {
+        "zh-Hans": "罗得"
+      },
+      "years": ""
+    },
+    {
+      "id": "moabites",
+      "parentId": "lot",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "摩押人"
+      },
+      "ancestor": {
+        "zh-Hans": "摩押（罗得之子）"
+      },
+      "ancestorYears": "",
+      "region": "死海以东高原",
+      "modernRef": "今约旦中部",
+      "faith": "基抹、巴力毗珥",
+      "scripturesOrigin": [
+        {
+          "text": "大女儿生了儿子，给他起名叫摩押，就是现今摩押人的始祖。",
+          "ref": "创世记 19:37",
+          "link": "https://www.bible.com/bible/48/GEN.19.37.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [
+        {
+          "text": "摩押啊，你有祸了！基抹的民哪，你们灭亡了！",
+          "ref": "民数记 21:29",
+          "link": "https://www.bible.com/bible/48/NUM.21.29.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        },
+        {
+          "text": "他又为摩押的可憎之神基抹和亚扪人的可憎之神摩洛，在耶路撒冷对面的山上建筑丘坛。",
+          "ref": "列王纪上 11:7",
+          "link": "https://www.bible.com/bible/48/1KI.11.7.CUNPSS-%E7%A5%9E",
+          "weight": 0.9
+        },
+        {
+          "text": "以色列人就与巴力毗珥连合，耶和华的怒气就向以色列人发作。",
+          "ref": "民数记 25:3",
+          "link": "https://www.bible.com/bible/48/NUM.25.3.CUNPSS-%E7%A5%9E",
+          "weight": 0.6
+        },
+        {
+          "text": "以色列人又行耶和华眼中看为恶的事，去侍奉诸巴力和亚斯他录，并亚兰的神、西顿的神、摩押的神、亚扪人的神、非利士人的神，离弃耶和华，不侍奉他。",
+          "ref": "士师记 10:6",
+          "link": "https://www.bible.com/bible/48/JDG.10.6.CUNPSS-%E7%A5%9E",
+          "weight": 0.65
+        }
+      ],
+      "disputed": false,
+      "disputedNote": "",
+      "archaeology": {
+        "god": "基抹（Chemosh）",
+        "note": "米沙石碑（约主前 840 年，1868 年于底本出土，现藏卢浮宫）通篇以基抹的喜怒解释摩押的兴衰，是摩押国神最直接的石刻自述。",
+        "link": "https://jewishvirtuallibrary.org/jsource/judaica/ejud_0002_0014_0_13724.html"
+      }
+    },
+    {
+      "id": "ammonites",
+      "parentId": "lot",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "亚扪人"
+      },
+      "ancestor": {
+        "zh-Hans": "便亚米（罗得之子）"
+      },
+      "ancestorYears": "",
+      "region": "死海东北（约旦河东）",
+      "modernRef": "今约旦首都安曼一带（拉巴）",
+      "faith": "米勒公（摩洛）",
+      "scripturesOrigin": [
+        {
+          "text": "小女儿也生了儿子，给他起名叫便亚米，就是现今亚扪人的始祖。",
+          "ref": "创世记 19:38",
+          "link": "https://www.bible.com/bible/48/GEN.19.38.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [
+        {
+          "text": "因为所罗门随从西顿人的女神亚斯他录和亚扪人可憎的神米勒公，不效法他父亲大卫诚诚实实地顺服耶和华。",
+          "ref": "列王纪上 11:5",
+          "link": "https://www.bible.com/bible/48/1KI.11.5.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        },
+        {
+          "text": "他又为摩押的可憎之神基抹和亚扪人的可憎之神摩洛，在耶路撒冷对面的山上建筑丘坛。",
+          "ref": "列王纪上 11:7",
+          "link": "https://www.bible.com/bible/48/1KI.11.7.CUNPSS-%E7%A5%9E",
+          "weight": 0.9
+        },
+        {
+          "text": "你的神基抹所赐给你的地，你不是得为业吗？我们耶和华我们的神在我们面前所赶出的人的地，我们就得为业。",
+          "ref": "士师记 11:24",
+          "link": "https://www.bible.com/bible/48/JDG.11.24.CUNPSS-%E7%A5%9E",
+          "weight": 0.7
+        },
+        {
+          "text": "以色列人又行耶和华眼中看为恶的事，去侍奉诸巴力和亚斯他录，并亚兰的神、西顿的神、摩押的神、亚扪人的神、非利士人的神，离弃耶和华，不侍奉他。",
+          "ref": "士师记 10:6",
+          "link": "https://www.bible.com/bible/48/JDG.10.6.CUNPSS-%E7%A5%9E",
+          "weight": 0.65
+        }
+      ],
+      "disputed": true,
+      "disputedNote": "士师记 11:24 耶弗他对亚扪人王说话时称基抹为「你的神」，与列王纪所记亚扪国神米勒公并存——或亚扪亦拜基抹，或耶弗他混用了邻邦之神，学界无定论。",
+      "archaeology": {
+        "god": "米勒公（Milcom）",
+        "note": "安曼城堡等地出土亚扪王像与铭文，圣经外文献称米勒公为亚扪的国神。",
+        "link": "https://www.openscrollproject.org/app/gods"
+      }
+    },
+    {
+      "id": "ishmael",
+      "parentId": "abraham",
+      "type": "link",
+      "name": {
+        "zh-Hans": "以实玛利"
+      },
+      "years": "终年 137 岁（创 25:17）"
+    },
+    {
+      "id": "ishmaelites",
+      "parentId": "ishmael",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "以实玛利人"
+      },
+      "ancestor": {
+        "zh-Hans": "以实玛利"
+      },
+      "ancestorYears": "终年 137 岁（创 25:17）",
+      "region": "阿拉伯半岛北部与西奈、巴兰旷野",
+      "modernRef": "阿拉伯诸族的谱系源头之一",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "至于以实玛利，我也应允你：我必赐福给他，使他昌盛，极其繁多。他必生十二个族长，我也要使他成为大国。",
+          "ref": "创世记 17:20",
+          "link": "https://www.bible.com/bible/48/GEN.17.20.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        },
+        {
+          "text": "而且使女的儿子，我也必使他的后裔成立一国，因为他是你所生的。",
+          "ref": "创世记 21:13",
+          "link": "https://www.bible.com/bible/48/GEN.21.13.CUNPSS-%E7%A5%9E",
+          "weight": 0.9
+        },
+        {
+          "text": "这都是以实玛利众子的名字，照着他们的村庄、营寨，作了十二族的族长。",
+          "ref": "创世记 25:16",
+          "link": "https://www.bible.com/bible/48/GEN.25.16.CUNPSS-%E7%A5%9E",
+          "weight": 0.9
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "nebaioth",
+      "parentId": "ishmaelites",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "尼拜约人"
+      },
+      "ancestor": {
+        "zh-Hans": "尼拜约"
+      },
+      "ancestorYears": "",
+      "region": "阿拉伯半岛北部",
+      "modernRef": "多与纳巴泰人（Nabataeans）相关联",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "以实玛利儿子们的名字，照着他们的家谱记在下面：以实玛利的长子是尼拜约，又有基达、亚德别、米比衫。",
+          "ref": "创世记 25:13",
+          "link": "https://www.bible.com/bible/48/GEN.25.13.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": "",
+      "archaeology": {
+        "god": "杜沙拉（Dushara）",
+        "note": "尼拜约与纳巴泰人的关联属传统说法（未证实）；纳巴泰主神杜沙拉意为「沙拉山之主」，崇拜中心在佩特拉。",
+        "link": "https://en.wikipedia.org/wiki/List_of_pre-Islamic_Arabian_deities"
+      }
+    },
+    {
+      "id": "kedar",
+      "parentId": "ishmaelites",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "基达人"
+      },
+      "ancestor": {
+        "zh-Hans": "基达"
+      },
+      "ancestorYears": "",
+      "region": "阿拉伯半岛北部沙漠",
+      "modernRef": "基达部落，今沙特阿拉伯北部一带",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "以实玛利儿子们的名字，照着他们的家谱记在下面：以实玛利的长子是尼拜约，又有基达、亚德别、米比衫。",
+          "ref": "创世记 25:13",
+          "link": "https://www.bible.com/bible/48/GEN.25.13.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        },
+        {
+          "text": "基达的羊群都必聚集到你这里，尼拜约的公羊要供你使用。",
+          "ref": "以赛亚书 60:7",
+          "link": "https://www.bible.com/bible/48/ISA.60.7.CUNPSS-%E7%A5%9E",
+          "weight": 0.6
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "adbeel",
+      "parentId": "ishmaelites",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "亚德别人"
+      },
+      "ancestor": {
+        "zh-Hans": "亚德别"
+      },
+      "ancestorYears": "",
+      "region": "阿拉伯半岛北部",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "以实玛利儿子们的名字，照着他们的家谱记在下面：以实玛利的长子是尼拜约，又有基达、亚德别、米比衫。",
+          "ref": "创世记 25:13",
+          "link": "https://www.bible.com/bible/48/GEN.25.13.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "mibsam",
+      "parentId": "ishmaelites",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "米比衫人"
+      },
+      "ancestor": {
+        "zh-Hans": "米比衫"
+      },
+      "ancestorYears": "",
+      "region": "阿拉伯半岛北部",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "以实玛利儿子们的名字，照着他们的家谱记在下面：以实玛利的长子是尼拜约，又有基达、亚德别、米比衫。",
+          "ref": "创世记 25:13",
+          "link": "https://www.bible.com/bible/48/GEN.25.13.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "mishma",
+      "parentId": "ishmaelites",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "米施玛人"
+      },
+      "ancestor": {
+        "zh-Hans": "米施玛"
+      },
+      "ancestorYears": "",
+      "region": "阿拉伯半岛北部",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "米施玛、度玛、玛撒。",
+          "ref": "创世记 25:14",
+          "link": "https://www.bible.com/bible/48/GEN.25.14.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "dumah",
+      "parentId": "ishmaelites",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "度玛人"
+      },
+      "ancestor": {
+        "zh-Hans": "度玛"
+      },
+      "ancestorYears": "",
+      "region": "阿拉伯半岛北部绿洲",
+      "modernRef": "度玛（Dumat al-Jandal），今沙特阿拉伯焦夫省",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "米施玛、度玛、玛撒。",
+          "ref": "创世记 25:14",
+          "link": "https://www.bible.com/bible/48/GEN.25.14.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "massa",
+      "parentId": "ishmaelites",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "玛撒人"
+      },
+      "ancestor": {
+        "zh-Hans": "玛撒"
+      },
+      "ancestorYears": "",
+      "region": "阿拉伯半岛北部",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "米施玛、度玛、玛撒。",
+          "ref": "创世记 25:14",
+          "link": "https://www.bible.com/bible/48/GEN.25.14.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "hadad-ish",
+      "parentId": "ishmaelites",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "哈达人"
+      },
+      "ancestor": {
+        "zh-Hans": "哈达"
+      },
+      "ancestorYears": "",
+      "region": "阿拉伯半岛北部",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "哈达、提玛、伊突、拿非施、基底玛。",
+          "ref": "创世记 25:15",
+          "link": "https://www.bible.com/bible/48/GEN.25.15.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "tema",
+      "parentId": "ishmaelites",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "提玛人"
+      },
+      "ancestor": {
+        "zh-Hans": "提玛"
+      },
+      "ancestorYears": "",
+      "region": "阿拉伯半岛北部绿洲",
+      "modernRef": "提玛（Tema），今沙特阿拉伯泰马",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "哈达、提玛、伊突、拿非施、基底玛。",
+          "ref": "创世记 25:15",
+          "link": "https://www.bible.com/bible/48/GEN.25.15.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "jetur",
+      "parentId": "ishmaelites",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "伊突人"
+      },
+      "ancestor": {
+        "zh-Hans": "伊突"
+      },
+      "ancestorYears": "",
+      "region": "约旦河东（以土利亚）",
+      "modernRef": "以土利亚（Iturea），今叙利亚南部",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "哈达、提玛、伊突、拿非施、基底玛。",
+          "ref": "创世记 25:15",
+          "link": "https://www.bible.com/bible/48/GEN.25.15.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "naphish",
+      "parentId": "ishmaelites",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "拿非施人"
+      },
+      "ancestor": {
+        "zh-Hans": "拿非施"
+      },
+      "ancestorYears": "",
+      "region": "约旦河东",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "哈达、提玛、伊突、拿非施、基底玛。",
+          "ref": "创世记 25:15",
+          "link": "https://www.bible.com/bible/48/GEN.25.15.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "kedemah",
+      "parentId": "ishmaelites",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "基底玛人"
+      },
+      "ancestor": {
+        "zh-Hans": "基底玛"
+      },
+      "ancestorYears": "",
+      "region": "阿拉伯半岛（东方）",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "哈达、提玛、伊突、拿非施、基底玛。",
+          "ref": "创世记 25:15",
+          "link": "https://www.bible.com/bible/48/GEN.25.15.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "keturah",
+      "parentId": "abraham",
+      "type": "link",
+      "name": {
+        "zh-Hans": "基土拉"
+      },
+      "years": ""
+    },
+    {
+      "id": "midianites",
+      "parentId": "keturah",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "米甸人"
+      },
+      "ancestor": {
+        "zh-Hans": "米甸（基土拉之子）"
+      },
+      "ancestorYears": "",
+      "region": "阿拉伯半岛西北部（西奈以东、红海东岸）",
+      "modernRef": "今沙特阿拉伯西北部（米甸故地）",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "亚伯拉罕又娶了一妻，名叫基土拉。她给他生了心兰、约珊、米但、米甸、伊施巴、书亚。",
+          "ref": "创世记 25:1-2",
+          "link": "https://www.bible.com/bible/48/GEN.25.1-2.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        },
+        {
+          "text": "有些米甸的商人从那里经过，哥哥们就把约瑟从坑里拉上来，以二十舍客勒银子把约瑟卖给以实玛利人，他们就把约瑟带到埃及去了。",
+          "ref": "创世记 37:28",
+          "link": "https://www.bible.com/bible/48/GEN.37.28.CUNPSS-%E7%A5%9E",
+          "weight": 0.5
+        }
+      ],
+      "scripturesFaith": [
+        {
+          "text": "这些妇女因巴兰的计谋，叫以色列人在毗珥的事上得罪耶和华，以致耶和华的会众遭遇瘟疫。",
+          "ref": "民数记 31:16",
+          "link": "https://www.bible.com/bible/48/NUM.31.16.CUNPSS-%E7%A5%9E",
+          "weight": 0.5
+        }
+      ],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "isaac",
+      "parentId": "abraham",
+      "type": "link",
+      "name": {
+        "zh-Hans": "以撒"
+      },
+      "years": "终年 180 岁（创 35:28）"
+    },
+    {
+      "id": "esau",
+      "parentId": "isaac",
+      "type": "link",
+      "name": {
+        "zh-Hans": "以扫"
+      },
+      "years": ""
+    },
+    {
+      "id": "edomites",
+      "parentId": "esau",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "以东人"
+      },
+      "ancestor": {
+        "zh-Hans": "以扫"
+      },
+      "ancestorYears": "",
+      "region": "死海以南的西珥山地",
+      "modernRef": "今约旦南部（以东，后为以土买亚）",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "于是以扫住在西珥山里；以扫就是以东。",
+          "ref": "创世记 36:8",
+          "link": "https://www.bible.com/bible/48/GEN.36.8.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        },
+        {
+          "text": "以扫对雅各说：我累昏了，请你把这红汤给我喝。因此以扫又叫以东。",
+          "ref": "创世记 25:30",
+          "link": "https://www.bible.com/bible/48/GEN.25.30.CUNPSS-%E7%A5%9E",
+          "weight": 0.85
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": "",
+      "archaeology": {
+        "god": "科斯（Qos）",
+        "note": "圣经从未提及此神；其名见于霍瓦特·乌扎（Horvat Uza）陶片「我以科斯之名祝福你」、基特米特（Horvat Qitmit）露天神龛铭文，并构成多位以东王的王名（如 Qausgabri）。",
+        "link": "https://en.wikipedia.org/wiki/Qos_(deity)"
+      }
+    },
+    {
+      "id": "amalekites",
+      "parentId": "esau",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "亚玛力人"
+      },
+      "ancestor": {
+        "zh-Hans": "亚玛力（以扫之孙）"
+      },
+      "ancestorYears": "",
+      "region": "西奈半岛与尼革夫（迦南南部）",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "亭纳是以扫儿子以利法的妾，她给以利法生了亚玛力。这是以扫的妻子亚大的子孙。",
+          "ref": "创世记 36:12",
+          "link": "https://www.bible.com/bible/48/GEN.36.12.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "jacob",
+      "parentId": "isaac",
+      "type": "link",
+      "name": {
+        "zh-Hans": "雅各"
+      },
+      "years": "终年 147 岁（创 47:28）"
+    },
+    {
+      "id": "israel",
+      "parentId": "jacob",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "以色列"
+      },
+      "ancestor": {
+        "zh-Hans": "雅各（以色列）"
+      },
+      "ancestorYears": "终年 147 岁（创 47:28）",
+      "region": "迦南地（约旦河两岸）",
+      "modernRef": "以色列（犹太民族）",
+      "faith": "耶和华",
+      "scripturesOrigin": [
+        {
+          "text": "那人说：你的名不要再叫雅各，要叫以色列，因为你与神与人较力，都得了胜。",
+          "ref": "创世记 32:28",
+          "link": "https://www.bible.com/bible/48/GEN.32.28.CUNPSS-%E7%A5%9E",
+          "weight": 1.0
+        },
+        {
+          "text": "神对他说：你的名原是雅各，从今以后不要再叫雅各，要叫以色列。这样，他就改名叫以色列。",
+          "ref": "创世记 35:10",
+          "link": "https://www.bible.com/bible/48/GEN.35.10.CUNPSS-%E7%A5%9E",
+          "weight": 0.9
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "reuben",
+      "parentId": "israel",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "流便支派"
+      },
+      "ancestor": {
+        "zh-Hans": "流便"
+      },
+      "ancestorYears": "",
+      "region": "约旦河东（死海以北）",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "流便哪，你是我的长子，是我力量强壮的时候生的，本当大有尊荣，权力超众。",
+          "ref": "创世记 49:3",
+          "link": "https://www.bible.com/bible/48/GEN.49.3.CUNPSS-%E7%A5%9E",
+          "weight": 0.85
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "simeon",
+      "parentId": "israel",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "西缅支派"
+      },
+      "ancestor": {
+        "zh-Hans": "西缅"
+      },
+      "ancestorYears": "",
+      "region": "犹大境内南部（尼革夫）",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "西缅和利未是弟兄，他们的刀剑是残忍的器具。",
+          "ref": "创世记 49:5",
+          "link": "https://www.bible.com/bible/48/GEN.49.5.CUNPSS-%E7%A5%9E",
+          "weight": 0.85
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "levi",
+      "parentId": "israel",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "利未支派"
+      },
+      "ancestor": {
+        "zh-Hans": "利未"
+      },
+      "ancestorYears": "",
+      "region": "无地业，分散住在各支派的四十八座城",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "西缅和利未是弟兄，他们的刀剑是残忍的器具。",
+          "ref": "创世记 49:5",
+          "link": "https://www.bible.com/bible/48/GEN.49.5.CUNPSS-%E7%A5%9E",
+          "weight": 0.85
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "judah",
+      "parentId": "israel",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "犹大支派"
+      },
+      "ancestor": {
+        "zh-Hans": "犹大"
+      },
+      "ancestorYears": "",
+      "region": "南部山地（耶路撒冷以南）",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "犹大啊，你弟兄们必赞美你；你手必掐住仇敌的颈项，你父亲的儿子们必向你下拜。",
+          "ref": "创世记 49:8",
+          "link": "https://www.bible.com/bible/48/GEN.49.8.CUNPSS-%E7%A5%9E",
+          "weight": 0.85
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "zebulun",
+      "parentId": "israel",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "西布伦支派"
+      },
+      "ancestor": {
+        "zh-Hans": "西布伦"
+      },
+      "ancestorYears": "",
+      "region": "加利利南部至地中海",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "西布伦必住在海口，必成为停船的海口；他的境界必延到西顿。",
+          "ref": "创世记 49:13",
+          "link": "https://www.bible.com/bible/48/GEN.49.13.CUNPSS-%E7%A5%9E",
+          "weight": 0.85
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "issachar",
+      "parentId": "israel",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "以萨迦支派"
+      },
+      "ancestor": {
+        "zh-Hans": "以萨迦"
+      },
+      "ancestorYears": "",
+      "region": "耶斯列平原以东",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "以萨迦是个强壮的驴，卧在羊圈之中。",
+          "ref": "创世记 49:14",
+          "link": "https://www.bible.com/bible/48/GEN.49.14.CUNPSS-%E7%A5%9E",
+          "weight": 0.85
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "dan",
+      "parentId": "israel",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "但支派"
+      },
+      "ancestor": {
+        "zh-Hans": "但"
+      },
+      "ancestorYears": "",
+      "region": "初在沿海，后迁至北方的拉亿（但城）",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "但必判断他的民，作以色列支派之一。",
+          "ref": "创世记 49:16",
+          "link": "https://www.bible.com/bible/48/GEN.49.16.CUNPSS-%E7%A5%9E",
+          "weight": 0.85
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "gad",
+      "parentId": "israel",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "迦得支派"
+      },
+      "ancestor": {
+        "zh-Hans": "迦得"
+      },
+      "ancestorYears": "",
+      "region": "约旦河东（基列）",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "迦得必被敌军追逼，他却要追逼他们的脚跟。",
+          "ref": "创世记 49:19",
+          "link": "https://www.bible.com/bible/48/GEN.49.19.CUNPSS-%E7%A5%9E",
+          "weight": 0.85
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "asher",
+      "parentId": "israel",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "亚设支派"
+      },
+      "ancestor": {
+        "zh-Hans": "亚设"
+      },
+      "ancestorYears": "",
+      "region": "北部沿海（亚柯至推罗一带）",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "亚设的食物必丰美，他必出君王的美味。",
+          "ref": "创世记 49:20",
+          "link": "https://www.bible.com/bible/48/GEN.49.20.CUNPSS-%E7%A5%9E",
+          "weight": 0.85
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "naphtali",
+      "parentId": "israel",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "拿弗他利支派"
+      },
+      "ancestor": {
+        "zh-Hans": "拿弗他利"
+      },
+      "ancestorYears": "",
+      "region": "加利利北部山区",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "拿弗他利是被释放的母鹿，他出嘉美的言语。",
+          "ref": "创世记 49:21",
+          "link": "https://www.bible.com/bible/48/GEN.49.21.CUNPSS-%E7%A5%9E",
+          "weight": 0.85
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "joseph",
+      "parentId": "israel",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "约瑟支派"
+      },
+      "ancestor": {
+        "zh-Hans": "约瑟"
+      },
+      "ancestorYears": "",
+      "region": "中部山地（以法莲、玛拿西两支派之地）",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "约瑟是多结果子的树枝，是泉旁多结果的枝子，他的枝条探出墙外。",
+          "ref": "创世记 49:22",
+          "link": "https://www.bible.com/bible/48/GEN.49.22.CUNPSS-%E7%A5%9E",
+          "weight": 0.85
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    },
+    {
+      "id": "benjamin",
+      "parentId": "israel",
+      "type": "nation",
+      "name": {
+        "zh-Hans": "便雅悯支派"
+      },
+      "ancestor": {
+        "zh-Hans": "便雅悯"
+      },
+      "ancestorYears": "",
+      "region": "耶路撒冷以北高原",
+      "modernRef": "",
+      "faith": "",
+      "scripturesOrigin": [
+        {
+          "text": "便雅悯是个撕掠的狼，早晨要吃他所抓的，晚上要分他所夺的。",
+          "ref": "创世记 49:27",
+          "link": "https://www.bible.com/bible/48/GEN.49.27.CUNPSS-%E7%A5%9E",
+          "weight": 0.85
+        }
+      ],
+      "scripturesFaith": [],
+      "disputed": false,
+      "disputedNote": ""
+    }
+  ]
 }
