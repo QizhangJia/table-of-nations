@@ -395,7 +395,15 @@
       } catch (err) {}
       pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
       if (pointers.size === 1) {
-        drag = { x: e.clientX, y: e.clientY, moved: false };
+        // 命中目标必须在按下瞬间记录：setPointerCapture 后，浏览器会把后续
+        // pointerup 的 target 重定向到 svg 本身，抬起时再查 e.target 恒为空。
+        drag = {
+          x: e.clientX,
+          y: e.clientY,
+          moved: false,
+          toggleId: toggleIdFromEvent(e),
+          nodeId: nodeIdFromEvent(e),
+        };
       } else if (pointers.size === 2) {
         drag = null;
         var ps = Array.from(pointers.values());
@@ -442,14 +450,14 @@
       if (wasDrag && pointers.size === 0) {
         drag = null;
         if (!wasDrag.moved) {
-          var tg = toggleIdFromEvent(e);
+          var tg = wasDrag.toggleId;
           if (tg) {
             if (expanded.has(tg)) expanded.delete(tg);
             else expanded.add(tg);
             render();
             return;
           }
-          var id = nodeIdFromEvent(e);
+          var id = wasDrag.nodeId;
           if (id) {
             selected = id;
             render();
